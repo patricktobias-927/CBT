@@ -12,10 +12,23 @@ class Posts_model extends CI_Model{
             return $query->result_array();
 
         }
+
+        public function get_records(){
+            $query = $this->db->get('cbt_add_school');
+            return $query->result_array();
+        }
+        public function get_schedule(){
+            $query = $this->db->get('cbt_add_schedule');
+            return $query->result_array();
+        }
+        public function get_records_single(){
+            $result = $this->db->get('cbt_add_school');
+            return $result->row_array();
+        }
+        
         public function get_posts_single($param){
             $this->db->where('Slug', $param);
             $result = $this->db->get('post');
-
             return $result->row_array();
 
         }
@@ -28,12 +41,34 @@ class Posts_model extends CI_Model{
         }
             public function insert_post(){
                 $data = array (
-                    'title' => $this->input->post('title'),
-                    'slug'  => url_title($this->input->post('title'), '-', true),
-                    'body' => $this->input->post('body')
+                    'school_name' => $this->input->post('schoolname'),
+                    // 'slug'  => url_title($this->input->post('title'), '-', true),
+                    'school_code' => $this->input->post('schoolcode')
                 );
-                return $this->db->insert('post', $data);          
+                return $this->db->insert('cbt_add_school', $data);          
         }
+
+
+    
+        public function insert_schedule(){
+            $school_id = $this->input->post('schools');
+            $data = array (
+                'school_year' => $this->input->post('school_year'),
+                'testing_date' => $this->input->post('daterange'),
+                'no_of_takers' => $this->input->post('no_of_takers')
+            );
+            $select = $this->db->select('school_name, school_code')->where('school_id', $school_id)->get('cbt_add_school');
+            if($select->num_rows())
+                {
+                   
+                    $insert =  $this->db->insert('cbt_add_schedule', $select->row_array() + $data); 
+                   
+            }
+            else{
+                return false;
+            }  
+        }   
+    
         public function update_post(){
             $id = $this->input->post('id');
             $data = array (

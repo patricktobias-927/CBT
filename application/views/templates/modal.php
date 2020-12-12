@@ -3,21 +3,21 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       <?= form_open('delete');?>
-      <h2>Are you sure you want to delete?</h2>
+      <h2>Set Schedule?</h2>
         <input type="hidden" value="<?= $id; ?>" name="id">
         
       </div>
       <div class="modal-footer">
       <div class="btn-group">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="submit" class="btn btn-success">Yes</button>
         </div>
       </div>
     </div>
