@@ -49,6 +49,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['pages/add/page/2'] = 'Pages/add';
+$route['process_download'] = 'Download/process_download';
+$route['bulk_upload_of_students'] = 'Pages/bulk_upload_of_students';
+$route['school_and_section_list'] = 'Pages/school_and_section_list';
+$route['delete_grade_level'] = 'Pages/delete_grade_level';
+$route['delete_batch'] = 'Pages/delete_batch';
+$route['delete_section_codes'] = 'Pages/delete_section_codes';
+$route['add_grade_level'] = 'Pages/add_grade_level';
+$route['add_section'] = 'Pages/add_section';
+$route['add_batch'] = 'Pages/add_batch';
+$route['add_section_codes'] = 'Pages/add_section_codes';
 $route['addschedule'] = 'Pages/addschedule';
 $route['login'] = 'Pages/login';
 $route['logout'] = 'Pages/logout';
@@ -56,7 +67,7 @@ $route['delete'] = 'Pages/delete';
 $route['add'] = 'Pages/add';
 $route['edit/(:any)'] = 'Pages/edit/$1';
 $route['delete/(:any)'] = 'Pages/delete/$1';
-$route['default_controller'] = 'Pages/view';
+$route['default_controller'] = 'Pages/login';
 $route['(:any)'] = 'Pages/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

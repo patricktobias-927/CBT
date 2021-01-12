@@ -1,30 +1,57 @@
+<?php if($this->session->logged_in){?>
+<?php
+echo "<h1> Welcome, ";
+echo $this->session->fullname;
+echo " !"; ?>
+ <?php } else { ?>
+ 
+<div class="container fluid">
+<div class="row">
+<div class="col-sm-12">
+<br>
+
 <h1>User Login</h1>
-<div class="container">
 <hr>
 
+</div>
 <?php if($this->session->flashdata('failed_login')) : ?>
 <?= '<p class="alert alert-danger">'.$this->session->flashdata('failed_login').'</p>' ?>
 <?php endif;?>
 
-<?= validation_errors();?>
 <?= form_open('login');?>
-
+<div class="row">
+<div class="col-sm-12">
 <div class="form-group">
+<?= validation_errors();?>
     <label for="username">Username</label>
-    <input type="text" id="username" style="width: 300px"  name="username" value="<?= set_value('username'); ?>" class="form-control"
-    autocomplete="off" placeholder="Enter email as username">
+    <div class="input-group">
+         <div class="input-gour-prepend">
+             <span class="input-group-text" style="width: 40px; height: 38px;"><i class="far fa-user"></i> 
+             <input type="text" id="username" style="width: 300px; margin-left: 9px;"  name="username" value="<?= set_value('username'); ?>" class="form-control"
+             autocomplete="on" placeholder="Enter email as username">
+             </span>
+          </div>
+    </div>
 </div>
 
 <div class="form-group">
-
+<div class="input-group">
+         <div class="input-gour-prepend">
     <label for="password" >Password</label>
-    <input type="password" style="width: 300px" name="password" placeholder="Enter password" class="form-control">
+    <span class="input-group-text" style="width: 40px; height: 38px;"><i class="fas fa-lock" style=""></i>
+    <input type="password" style="width: 300px; margin-left: 9px;" name="password" placeholder="Enter password" class="form-control"></span>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+</div>
+<button type="submit" class="btn btn-primary">Log In</button>
 
 </div>
 </div>
-
+</div>
+</div>
+</div>
+<?php } ?>
 <!-- <div class="row" style="margin-left: 200px">
 	<aside class="col-sm-4">
 <div class="card">

@@ -4,7 +4,9 @@ class Posts_model extends CI_Model{
 
         public function __construct(){
 
+            $this->load->helper(array('url', 'download'));
             $this->load->database();
+            $this->tblName = 'cbt_section_codes';
         }
         public function get_posts(){
 
@@ -12,15 +14,44 @@ class Posts_model extends CI_Model{
             return $query->result_array();
 
         }
-
         public function get_records(){
             $query = $this->db->get('cbt_add_school');
             return $query->result_array();
         }
+
         public function get_schedule(){
             $query = $this->db->get('cbt_add_schedule');
             return $query->result_array();
         }
+
+        public function get_section_codes(){
+            $query = $this->db->get('cbt_section_codes');
+            return $query->result_array();
+        }
+
+        public function get_sections(){
+            $query = $this->db->get('cbt_add_section');
+            return $query->result_array();
+        }
+
+        public function get_sections_filter(){
+
+            $query = 	$query = $this->db->query("SELECT school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
+            FROM cbt_add_section GROUP BY school_code;");
+            return $query->result_array();
+            // $this->db->insert('cbt_add_sections', $query->row_array());
+        }
+
+        public function get_batch(){
+            $query = $this->db->get('cbt_add_batch');
+            return $query->result_array();
+        }
+
+        public function get_grade_level(){
+            $query = $this->db->get('cbt_add_grade_level');
+            return $query->result_array();
+        }
+
         public function get_records_single(){
             $result = $this->db->get('cbt_add_school');
             return $result->row_array();
@@ -30,15 +61,25 @@ class Posts_model extends CI_Model{
             $this->db->where('Slug', $param);
             $result = $this->db->get('post');
             return $result->row_array();
-
         }
+        
         public function get_posts_edit($param){
             $this->db->where('id', $param);
             $result = $this->db->get('post');
 
             return $result->row_array();
-
         }
+ 
+        public function get_bulk_file(){
+            $query = $this->db->get('cbt_file');
+            return $query->result_array();
+        }
+
+        
+
+
+
+
             public function insert_post(){
                 $data = array (
                     'school_name' => $this->input->post('schoolname'),
@@ -48,8 +89,28 @@ class Posts_model extends CI_Model{
                 return $this->db->insert('cbt_add_school', $data);          
         }
 
+        public function insert_section(){
+            $data = array (
+                'section_code' => $this->input->post('section_code'),
+            );
+            return $this->db->insert('cbt_section_codes', $data);          
+    }
 
-    
+        public function insert_batch(){
+        $data = array (
+            'batch_name' => $this->input->post('batch'),
+        );
+        return $this->db->insert('cbt_add_batch', $data);          
+}
+
+        public function insert_grade_level(){
+            $data = array (
+                'grade_level' => $this->input->post('grade_level'),
+            );
+        return $this->db->insert('cbt_add_grade_level', $data);          
+}
+
+        //insert schedule
         public function insert_schedule(){
             $school_id = $this->input->post('schools');
             $data = array (
@@ -60,15 +121,43 @@ class Posts_model extends CI_Model{
             $select = $this->db->select('school_name, school_code')->where('school_id', $school_id)->get('cbt_add_school');
             if($select->num_rows())
                 {
-                   
                     $insert =  $this->db->insert('cbt_add_schedule', $select->row_array() + $data); 
                    
-            }
+                }
             else{
                 return false;
             }  
         }   
-    
+
+        //insert section
+        public function insert_sections(){
+            $school_id = $this->input->post('schools');
+            $data = array (
+                'grade' => $this->input->post('gradelevel'),
+                'section_name' => $this->input->post('sectionname'),
+                'section_code' => $this->input->post('sectioncode'),
+                'school_year' => $this->input->post('schoolyear'),
+                'batch' => $this->input->post('batch'),
+                'population' => $this->input->post('population')
+            );
+            $select = $this->db->select('school_name, school_code, school_id')->where('school_id', $school_id)->get('cbt_add_school');
+            if($select->num_rows())
+                {
+                    $insert =  $this->db->insert('cbt_add_section', $select->row_array() + $data); 
+                   
+                }
+            else{
+                return false;
+            }  
+        }   
+
+        //update school_and_section_list
+        public function get_schools_and_section_list(){
+            $query = $this->db->get('cbt_add_school');
+            $sql = "SELECT SUM(section_code) AS TotalItemsOrdered FROM cbt_add_section";
+            return $query->result_array();
+        }
+
         public function update_post(){
             $id = $this->input->post('id');
             $data = array (
@@ -87,6 +176,45 @@ class Posts_model extends CI_Model{
             return true;     
         }
 
+        //Delete Section Code
+        public function delete($id){
+            // $id = $this->input->post('checked_id[]');
+            
+            if(is_array($id)){
+                $this->db->where_in('section_id', $id);
+            }else{
+                $this->db->where('section_id', $id);
+            }
+            $delete = $this->db->delete('cbt_section_codes');
+            return $delete?true:false;
+        }
+
+         //Delete Batch Code
+         public function delete_batch($id){
+            // $id = $this->input->post('checked_id[]');
+            
+            if(is_array($id)){
+                $this->db->where_in('batch_id', $id);
+            }else{
+                $this->db->where('batch_id', $id);
+            }
+            $delete = $this->db->delete('cbt_add_batch');
+            return $delete?true:false;
+        }
+
+          //Delete Grade level
+          public function delete_grade_level($id){
+            // $id = $this->input->post('checked_id[]');
+            
+            if(is_array($id)){
+                $this->db->where_in('grade_level_id', $id);
+            }else{
+                $this->db->where('grade_level_id', $id);
+            }
+            $delete = $this->db->delete('cbt_add_grade_level');
+            return $delete?true:false;
+        }
+
         public function login(){
 
             $this->db->where('email', $this->input->post('username', true));
@@ -100,4 +228,9 @@ class Posts_model extends CI_Model{
                 return false;
         }
     }
-}
+
+            //search section
+      
+    }
+
+

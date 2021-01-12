@@ -1,4 +1,4 @@
-<?php if($this->session->flashdata('user_loggedin')) : ?>
+<!-- <?php if($this->session->flashdata('user_loggedin')) : ?>
 <?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>' ?>
 <?php endif;?>
 
@@ -15,4 +15,11 @@
     <?php foreach($posts as $row){?>
         <a class="list-group-item list-group-item-action"href="<?= base_url();?><?= $row['Slug'];?>"> <?= $row['title'];?></a>  
     <?php } ?>
-</ul>
+</ul> -->
+<br>
+<?php if($this->session->logged_in){?>
+<?php
+echo "<h1> Welcome, ";
+echo $this->session->fullname;
+echo " !"; ?>
+<?php }  ?>

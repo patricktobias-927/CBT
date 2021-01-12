@@ -1,14 +1,17 @@
-<h1> <?= $title;?> </h1>
-<hr>
-<?= validation_errors();?>
-<?php if($this->session->flashdata('post_added_schedule')) : ?> 
-<?= '<p class="alert alert-success">'.$this->session->flashdata('post_added_schedule').'</p>' ?>
-<?php endif;?>
-<div class="row">
-    <div class="col-lg-12">
-        <?= form_open('addschedule');?>
-        <div class="form-group">
-     <label for="title" style=" float:left;" >School:   </label>
+ <h1> <?= $title;?> </h1>
+    <hr>
+      <?= validation_errors();?>
+      <?php if($this->session->flashdata('post_added_schedule')) : ?> 
+      <?= '<p class="alert alert-success">'.$this->session->flashdata('post_added_schedule').'</p>' ?>
+      <?php endif;?>
+
+      <div class="container fluid ">
+         <div class="row">
+           <div class="col-lg-12">
+
+                  <?= form_open('addschedule');?>
+                  <div class="form-group">
+              <label for="title" style=" float:left;" >School:   </label>
            
             <select name="schools" id="schools"class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
             <option value=""></option>
@@ -24,29 +27,32 @@
             <?php } ?>
             </select> -->
 
-         
-
             <!-- <label for="title" style=" margin-left:50px; float:left;">School Code:</label>
             <input  type="text" name="schoolcode" class="form-control" placeholder="" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;" value="" readonly> --> 
-            <br>
-            <br>    
-            <label for="title"  style="float:left;">School Year:</label>
+        
+            <label for="title"  style="float:left; margin-left:30px; ">School Year:</label>
             <input type="text" name="school_year" class="form-control" placeholder="ex. 2020-2021" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
             <label for="title" style="float:left; margin-left:50px;">Testing Date:</label>
             <input type="text" name="daterange" class="form-control" style="width: 220px; margin-left:10px; margin-top:-4px; float:left;" value="" />
             <br>
             <br>   
+            <br>
             <label for="title"  style="float:left;">No. of test Takers:</label>
-            <input type="text" name="no_of_takers" class="form-control" placeholder="Enter No. of test Takers" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
-            <button type="submit" class="btn btn-success" style="margin-left:200px; margin-top:-4px; float:left;">Add School</button>
+            <input type="text" name="no_of_takers" class="form-control" placeholder="Enter No. of test Takers" style="width: 195px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+            <button type="submit" class="btn btn-success" style="margin-left:37px; margin-top:-4px; float:left; background-color: #FF8C00; border-color: #FF8C00;">Add Schedule</button>
             <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="margin-left:185px; margin-top:-4px; float:left;">Add Schedule</button> -->
       
+          </div>
+        </div>
       </div>
+   </div>     
+</div>
+<div class="container fluid ">
+         <div class="row">
+           <div class="col-lg-12">
         <br>
         <br>
-        <br>
-        <br>
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped" id="schedule_table">
             <thead>
                 <tr>
                 <th scope="col">School Code</th>
@@ -59,18 +65,21 @@
             <tbody>     
               <?php foreach($record as $row){?>
                 <tr>
-                <th scope="row"><?= $row['school_code'];?></th>
+                <td scope="row" style="font-weight:bold"><?= $row['school_code'];?></th>
                 <td><?= $row['school_name'];?></td>
                 <td><?= $row['school_year'];?></td>
                 <td><?= $row['no_of_takers'];?></td>
                 <td><?= $row['testing_date'];?></td>
                 </tr>
-                <?php } ?>
-             
-            </tbody>
-            </table>
-
-                </div>
-                            
-                    </div>
-                </div>                                          
+                <?php } ?>  
+               </tbody>
+            </table> 
+            </div>
+   </div>     
+</div>                                   
+       
+<script>  
+            $(document).ready(function(){  
+                $('#schedule_table').DataTable();  
+            });  
+            </script>  
