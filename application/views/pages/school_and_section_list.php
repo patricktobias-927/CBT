@@ -1,18 +1,19 @@
 <h1> <?= $title;?> </h1>
 <hr>
 <?= validation_errors();?>
-<div class="row">
-    <div class="col-lg-12">
+
         <?= form_open('school_and_section_list');?>
-        <div class="form-group">
+        <!-- <div class="form-group">
      <label for="search"  style="float:left;">Search School:</label>
             <input type="text" name="search_text" id="search_text" class="form-control" placeholder="Search" style="width: 180px; border-color:gray; margin-left:10px; margin-top:-4px; float:left;"   value="<?= set_value('schoolcode'); ?>">
-        </div>
+        </div> -->
         <br>
-        <br>
-        <br>
-        <br>
-        <table class="table table-bordered table-striped">
+     <button style="float:right; display: none;"></button></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+   
+        <table class="table table-bordered table-striped" id="school_list_table" style="">
             <thead>
                 <tr>
                 <th scope="col">School Code</th>
@@ -34,8 +35,11 @@
                 <?php } ?>
             </tbody>
             </table>
-
-                </div>
-                            
-                    </div>
-                </div>
+         </div>          
+    </div>
+</div>
+            <script>
+                $(document).ready(function(){  
+                $('#school_list_table').DataTable();  
+            });  
+            </script>  

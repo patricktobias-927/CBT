@@ -77,6 +77,9 @@
           <li class="nav-item">
             <a class="nav-link" href="bulk_upload_of_students";><i class="fas fa-user-plus"></i> Bulk Upload of Student</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_subject";><i class="fas fa-user-plus"></i> Add Subject</a>
+          </li>
           <?php }?>
             <br>
             <br>

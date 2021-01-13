@@ -88,7 +88,26 @@ class Excel_import extends CI_Controller
       'testing_date1'  => $testing_date1R
      );
     }
-   }
+   }  
+   
+//    $result = $this->db->query("SELECT LRN FROM cbt_students WHERE LRN = '" . $LRN . "' ");
+//    return $result->result_array();
+//    return $totalrows->row_array();
+   
+//    if ($totalrows > 0) {
+//     $pass_row = mysqli_fetch_assoc($result);
+//     $userID = $pass_row['LRN'];
+
+    // $this->db->where('LRN', $LRN);
+    // return $this->db->update('cbt_students', $data); 
+   
+//    $query= $this->db->query("UPDATE cbt_students
+//    SET
+//    first_name = '" . $first_name . "',
+//    middle_name = '" . $middle_name . "'
+//    WHERE LRN = '" . $userID . "'");   
+
+//             }
    $this->excel_import_model->insert($data);
    echo 'Data Imported successfully';
   } 

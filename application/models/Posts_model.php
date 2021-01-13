@@ -36,7 +36,7 @@ class Posts_model extends CI_Model{
 
         public function get_sections_filter(){
 
-            $query = 	$query = $this->db->query("SELECT school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
+            $query = $this->db->query("SELECT school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
             FROM cbt_add_section GROUP BY school_code;");
             return $query->result_array();
             // $this->db->insert('cbt_add_sections', $query->row_array());
@@ -46,6 +46,12 @@ class Posts_model extends CI_Model{
             $query = $this->db->get('cbt_add_batch');
             return $query->result_array();
         }
+        
+        public function get_subjects(){
+            $query = $this->db->get('cbt_add_subject');
+            return $query->result_array();
+        }
+
 
         public function get_grade_level(){
             $query = $this->db->get('cbt_add_grade_level');
@@ -75,10 +81,11 @@ class Posts_model extends CI_Model{
             return $query->result_array();
         }
 
-        
-
-
-
+        public function get_LRN(){
+            $query = $this->db->get('cbt_add_student');
+            return $query->result_array();
+            // $this->db->insert('cbt_add_sections', $query->row_array());
+        }
 
             public function insert_post(){
                 $data = array (
@@ -102,6 +109,13 @@ class Posts_model extends CI_Model{
         );
         return $this->db->insert('cbt_add_batch', $data);          
 }
+
+        public function insert_subject(){
+            $data = array (
+                'subject_name' => $this->input->post('subject'),
+            );
+            return $this->db->insert('cbt_add_subject', $data);          
+        }
 
         public function insert_grade_level(){
             $data = array (
@@ -202,6 +216,19 @@ class Posts_model extends CI_Model{
             return $delete?true:false;
         }
 
+           //Delete Subject
+        public function delete_subject($id){
+            // $id = $this->input->post('checked_id[]');
+            
+            if(is_array($id)){
+                $this->db->where_in('subject_id', $id);
+            }else{
+                $this->db->where('subject_id', $id);
+            }
+            $delete = $this->db->delete('cbt_add_subject');
+            return $delete?true:false;
+        }
+
           //Delete Grade level
           public function delete_grade_level($id){
             // $id = $this->input->post('checked_id[]');
@@ -212,6 +239,18 @@ class Posts_model extends CI_Model{
                 $this->db->where('grade_level_id', $id);
             }
             $delete = $this->db->delete('cbt_add_grade_level');
+            return $delete?true:false;
+        }
+
+        public function delete_section($id){
+            // $id = $this->input->post('checked_id[]');
+            
+            if(is_array($id)){
+                $this->db->where_in('section_id', $id);
+            }else{
+                $this->db->where('section_id', $id);
+            }
+            $delete = $this->db->delete('cbt_add_section');
             return $delete?true:false;
         }
 

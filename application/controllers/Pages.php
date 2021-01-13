@@ -194,6 +194,36 @@ public function add_batch(){
     }
 } 
 
+public function add_subject(){
+        
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+    $this->form_validation->set_rules('subject', 'Subject', 'required'); 
+
+    if($this->form_validation->run() == FALSE){
+
+    $page = "add_subject";
+
+    if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+        show_404();
+    }   
+    $data['records'] = $this->Posts_model->get_subjects();
+    // $data['school_record'] = $this->Posts_model->get_records_single();
+    // $data['school_code'] =  $data['school_record']['school_code'];
+    // $data['school_name'] =  $data['school_record']['school_name'];    
+    $data['title'] = "Add Subject";
+
+    $this->load->view('templates/header');
+    $this->load->view('pages/'.$page, $data);
+    $this->load->view('templates/footer');
+    }else{
+
+        $this->Posts_model->insert_subject();
+        $this->session->set_flashdata('subject_added', 'New Subject was added');
+        redirect(base_url().'add_subject');
+
+    }
+} 
+
 public function add_grade_level(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
@@ -425,6 +455,39 @@ public function add_section(){
             }
             $this->session->set_flashdata('batch_deleted', 'Batch deleted successfuly!');
             redirect(base_url().'add_batch');
+            
+            // // Get user data from the database
+            // $data['records'] = $this->Posts_model->get_section_codes();
+            
+            // // // Pass the data to view
+            // // $this->load->view('pages/'.$page, $data);;
+        }
+
+        public function delete_subject(){
+            $data = array();
+            
+            // If record delete request is submitted
+            if($this->input->post('bulk_delete_submit')){
+                // Get all selected IDss
+                $ids  = $this->input->post('checked_id');
+                
+                 // If id array is not empty
+                if(!empty($ids)){
+                    // Delete records from the database
+                    $delete = $this->Posts_model->delete_subject($ids);
+                    
+                    // If delete is successful
+                    if($delete){
+                        $data['statusMsg'] = 'Selected items have been deleted successfully.';
+                    }else{
+                        $data['statusMsg'] = 'Some problem occurred, please try again.';
+                    }
+                }else{
+                    $data['statusMsg'] = 'Select at least 1 record to delete.';
+                }
+            }
+            $this->session->set_flashdata('subject_deleted', 'Subject deleted successfuly!');
+            redirect(base_url().'add_subject');
             
             // // Get user data from the database
             // $data['records'] = $this->Posts_model->get_section_codes();

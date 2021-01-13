@@ -1,6 +1,6 @@
 <h1> <?= $title;?> </h1>
 <hr>
-<?= validation_errors();?>
+<!-- <?= validation_errors();?> -->
 <?php if($this->session->flashdata('section_code_added')) : ?> 
 <?= '<p class="alert alert-success">'.$this->session->flashdata('section_code_added').'</p>' ?>
 <?php endif;?>
@@ -20,7 +20,7 @@
                      <label for="" style=" float:left;" >Section Code:   </label>
                        <input type="text" name="section_code" class="form-control" placeholder="Enter Section Code" style="width: 200px;   margin-top:-4px; float:left;"   value="">
                       <button type="submit" class="btn btn-success" style="width: 15%;  margin-top:-4px; margin-left:500px; background-color: #FF8C00; border-color: #FF8C00; ">Add</button>
-                      <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 5px;  width:15%; margin-top:-4px;">Delete</button>    
+    
                   <br>   
                 </div>   
           </form>   
@@ -32,6 +32,7 @@
     <div class="row">
          <div class="col-12">  
            <form name="bulk_action_form2" action="<?=base_url().'delete_section_codes'?>" method="post" onSubmit="return delete_confirm();"/>
+           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 5px;  width:15%; margin-top:-4px;">Delete</button>
              <div class="form-group">
              <br>  
              <br>  

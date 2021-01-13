@@ -1,24 +1,24 @@
 <div class="container fluid ">
 <h1> <?= $title;?> </h1>
 <hr>
-<!-- <?= validation_errors();?> -->
-<?php if($this->session->flashdata('batch_added')) : ?> 
-<?= '<p class="alert alert-success">'.$this->session->flashdata('batch_added').'</p>' ?>
+<?= validation_errors();?>
+<?php if($this->session->flashdata('subject_added')) : ?> 
+<?= '<p class="alert alert-success">'.$this->session->flashdata('subject_added').'</p>' ?>
 <?php endif;?>
-<?php if($this->session->flashdata('batch_deleted')) : ?> 
-<?= '<p class="alert alert-success">'.$this->session->flashdata('batch_deleted').'</p>' ?>
+<?php if($this->session->flashdata('subject_deleted')) : ?> 
+<?= '<p class="alert alert-success">'.$this->session->flashdata('subject_deleted').'</p>' ?>
 <?php endif;?>
 
 <div class="row">
     <div class="col-lg-12">
-        <!-- <?= form_open('add_batch');?> -->
-        <form name="bulk_action_form3" action="<?=base_url().'add_batch'?>" method="post"/>
+        <!-- <?= form_open('add_subject');?> -->
+        <form name="bulk_action_form3" action="<?=base_url().'add_subject'?>" method="post"/>
            <div class="form-group">
            <br>   
-                <label for="title" style=" float:left;" >Batch Name:   </label>
-                <input type="text" name="batch" class="form-control" placeholder="Enter Batch Name" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+                <label for="title" style=" float:left;" >Subject:   </label>
+                <input type="text" name="subject" class="form-control" placeholder="Enter Subject" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
                 <button type="submit" class="btn btn-success" style="width: 15%; margin-left:16px; margin-top:-4px; float:left;background-color: #FF8C00; border-color: #FF8C00;">Add</button>
-
+             
             <br>      
       </div>  
 </form>
@@ -26,7 +26,7 @@
 <div class="container">
 <div class="row">
     <div class="col-lg-12">  
-           <form name="bulk_action_form2" action="<?= base_url().'delete_batch'?> " method="post" onSubmit="return  ();"/>
+           <form name="bulk_action_form2" action="<?= base_url().'delete_subject'?> " method="post" onSubmit="return delete_subject_confirm();"/>
            <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 5px;  width:15%; margin-top:-4px;">Delete</button> 
              <div class="form-group">
              <br>
@@ -35,14 +35,14 @@
                     <thead>
                         <tr>
                         <th scope="col"></th>
-                        <th scope="col">Batch</th>
+                        <th scope="col">Subject</th>
                         </tr>
                     </thead>
                     <tbody>     
                     <?php foreach($records as $row){?>
                         <tr>
-                        <td><input type="checkbox" name="checked_id[]" class="checkbox" value="<?= $row['batch_id'];?>"></td>
-                        <td><?= $row['batch_name'];?></td>
+                        <td><input type="checkbox" name="checked_id[]" class="checkbox" value="<?= $row['subject_id'];?>"></td>
+                        <td><?= $row['subject_name'];?></td>
                         </tr>
                         <?php } ?>      
                            
