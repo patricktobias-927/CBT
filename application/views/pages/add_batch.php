@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-lg-12">
         <!-- <?= form_open('add_batch');?> -->
-        <form name="bulk_action_form3" action="<?=base_url().'add_batch'?>" method="post"/>
+        <form style=""name="bulk_action_form3" action="<?=base_url().'add_batch'?>" method="post"/>
            <div class="form-group">
            <br>   
                 <label for="title" style=" float:left;" >Batch Name:   </label>
@@ -27,10 +27,10 @@
 <div class="row">
     <div class="col-lg-12">  
            <form name="bulk_action_form2" action="<?= base_url().'delete_batch'?> " method="post" onSubmit="return  ();"/>
-           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 5px;  width:15%; margin-top:-4px;">Delete</button> 
+           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 475px;  width:15%; margin-top:-67px;">Delete</button> 
              <div class="form-group">
              <br>
-             <br>
+             <button style="float:right; display: none;"></button></div>
                 <table class="table table-bordered table-striped" style="width: 100%;" id="batch_table">
                     <thead>
                         <tr>

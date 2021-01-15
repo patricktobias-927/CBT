@@ -8,35 +8,45 @@
 <?= '<p class="alert alert-success">'.$this->session->flashdata('section_code_deleted').'</p>' ?>
 <?php endif;?>
 
+
+<style>
+
+</style>
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-12">
 
         <!-- <?= form_open('delete_section_codes');?> -->
-       
-        <form name="bulk_action_form1" action="<?=base_url().'add_section_codes'?>" method="post"/>
+
+        <form class="form-inline" name="bulk_action_form1" action="<?=base_url().'add_section_codes'?>" method="post"/>
         <div class="form-group">
                  <br>   
                      <label for="" style=" float:left;" >Section Code:   </label>
-                       <input type="text" name="section_code" class="form-control" placeholder="Enter Section Code" style="width: 200px;   margin-top:-4px; float:left;"   value="">
-                      <button type="submit" class="btn btn-success" style="width: 15%;  margin-top:-4px; margin-left:500px; background-color: #FF8C00; border-color: #FF8C00; ">Add</button>
-    
+                       <input type="text" name="section_code" id="section_code" class="form-control" placeholder="Enter Section Code" style="width: 180px; margin-top:-4px;"   value="">
+                     
+                       <button type="submit"  id="add_button" class="btn btn-success" style="width: 170px;  margin-top:-4px; margin-left:40px; background-color: #FF8C00; border-color: #FF8C00;  ">Add</button>
+                      <button style="float:right; display: none;"></button></div>
                   <br>   
                 </div>   
           </form>   
         </div> 
     </div> 
 </div> 
+<br>  
+<br>  
 
 <div class="container">  
     <div class="row">
          <div class="col-12">  
-           <form name="bulk_action_form2" action="<?=base_url().'delete_section_codes'?>" method="post" onSubmit="return delete_confirm();"/>
-           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 5px;  width:15%; margin-top:-4px;">Delete</button>
+   
+           <form name="bulk_action_form2" class="" action="<?=base_url().'delete_section_codes'?>" method="post" onSubmit="return delete_confirm();"/>
+           <button type="submit" id="delete_button" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 505px;width:15%; margin-top:-60px;">Delete</button>
              <div class="form-group">
              <br>  
-             <br>  
-                            <table class="table table-bordered table-striped"  style="width: 100%;" id="section_codes_table">
+         
+  
+                            <table class="table table-bordered table-striped"  style="width: 100%; " id="section_codes_table">
                             <thead>
                                 <tr>
                                 <th scope="col"></th>

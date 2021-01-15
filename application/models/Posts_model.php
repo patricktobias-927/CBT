@@ -103,6 +103,8 @@ class Posts_model extends CI_Model{
             return $this->db->insert('cbt_section_codes', $data);          
     }
 
+    
+
         public function insert_batch(){
         $data = array (
             'batch_name' => $this->input->post('batch'),
@@ -142,6 +144,59 @@ class Posts_model extends CI_Model{
                 return false;
             }  
         }   
+        
+        //insert student
+        public function insert_student(){
+            $data = array (
+                'LRN' => $this->input->post('LRN'),
+                'phoenix_student_code' => $this->input->post('phoenix_student_code'),
+                'first_name' => $this->input->post('first_name'),
+                'middle_name' => $this->input->post('middle_name'),
+                'last_name' => $this->input->post('last_name'),
+                'birth_date' => $this->input->post('birthday'),
+                'gender' => $this->input->post('gender'),
+                'grade_level' => $this->input->post('grade_level'),
+                'school_name' => $this->input->post('school_name'),
+                
+                // 'respondent_number2' => $this->input->post('respondent_number2'),
+                // 'grade_level2' => $this->input->post('grade_level2'),
+                // 'section_2' => $this->input->post('section_2'),
+                // 'batch2' => $this->input->post('batch2'),
+                // 'testing_date2' => $this->input->post('testing_date2'),
+                // 'assessment_2' => $this->input->post('assessment_2'),
+
+                // 'respondent_number3' => $this->input->post('respondent_number3'),
+                // 'grade_level3' => $this->input->post('grade_level3'),
+                // 'section_3' => $this->input->post('section_3'),
+                // 'batch3' => $this->input->post('batch3'),
+                // 'testing_date3' => $this->input->post('testing_date3'),
+                // 'assessment_3' => $this->input->post('assessment_3'),
+
+                // 'respondent_number4' => $this->input->post('respondent_number4'),
+                // 'grade_level4' => $this->input->post('grade_level4'),
+                // 'section_4' => $this->input->post('section_4'),
+                // 'batch4' => $this->input->post('batch4'),
+                // 'testing_date4' => $this->input->post('testing_date4'),
+                // 'assessment_4' => $this->input->post('assessment_4'),
+
+                // 'respondent_number5' => $this->input->post('respondent_number5'),
+                // 'grade_level5' => $this->input->post('grade_level5'),
+                // 'section_5' => $this->input->post('section_5'),
+                // 'batch5' => $this->input->post('batch5'),
+                // 'testing_date5' => $this->input->post('testing_date5'),
+                // 'assessment_5' => $this->input->post('assessment_5'),
+
+                'respondent_number1' => $this->input->post('respondent_number1'),
+                'grade_level1' => $this->input->post('grade_level1'),
+                'section1' => $this->input->post('section_1'),
+                'batch1' => $this->input->post('batch_1'),
+                'testing_date1' => $this->input->post('testing_date1'),
+                'assessment_1' => $this->input->post('select_1')
+
+                
+            );
+            return $this->db->insert('cbt_students', $data);      
+        }  
 
         //insert section
         public function insert_sections(){

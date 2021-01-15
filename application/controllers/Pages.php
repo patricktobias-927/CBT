@@ -194,6 +194,39 @@ public function add_batch(){
     }
 } 
 
+
+
+public function add_student(){
+        
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+    $this->form_validation->set_rules('LRN', 'LRN', 'required'); 
+
+    if($this->form_validation->run() == FALSE){
+
+    $page = "add_student";
+
+    if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+        show_404();
+    }   
+
+    // $data['school_record'] = $this->Posts_model->get_records_single();
+    // $data['school_code'] =  $data['school_record']['school_code'];
+    // $data['school_name'] =  $data['school_record']['school_name'];    
+    $data['title'] = "Add Student";
+
+    $this->load->view('templates/header');
+    $this->load->view('pages/'.$page, $data);
+    $this->load->view('templates/footer');
+    }else{
+
+        $this->Posts_model->insert_student();
+        $this->session->set_flashdata('student_added', 'New Student was added');
+        redirect(base_url().'add_student');
+
+    }
+} 
+
+
 public function add_subject(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');

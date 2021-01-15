@@ -39,7 +39,7 @@
             <br>
             <label for="title"  style="float:left;">No. of test Takers:</label>
             <input type="text" name="no_of_takers" class="form-control" placeholder="Enter No. of test Takers" style="width: 195px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
-            <button type="submit" class="btn btn-success" style="margin-left:37px; margin-top:-4px; float:left; background-color: #FF8C00; border-color: #FF8C00;">Add Schedule</button>
+            <button type="submit" class="btn btn-success" style="margin-left:37px; margin-top:-4px; float:left; background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-plus"></i> Add Schedule</button>
             <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="margin-left:185px; margin-top:-4px; float:left;">Add Schedule</button> -->
       
           </div>

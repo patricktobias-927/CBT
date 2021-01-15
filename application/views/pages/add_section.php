@@ -73,7 +73,7 @@
             
             <label for="title" style="float:left; margin-left:0px;">Population:</label>     
                  <input type="text" name="population" placeholder="" class="form-control" style="width: 220px; margin-left:10px; margin-top:-4px; float:left;" value="" />
-                 <button type="submit" class="btn btn-success" style="margin-left:210px; margin-top:0px; float:left; background-color: #FF8C00; border-color: #FF8C00;">Add Another Section</button>          
+                 <button type="submit" class="btn btn-success" style="margin-left:210px; margin-top:0px; float:left; background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-plus"></i> Add Another Section</button>          
             <br>
             <br>
             <br>

@@ -10,7 +10,7 @@
                         <input type="text" name="schoolname" class="form-control" placeholder="Enter School Name" style="width: 180px; margin-left:10px; margin-top:-4px; float:left;"   value="<?= set_value('schoolcode'); ?>">
                         <label for="title" style="float:left; margin-left:25px;">School Code: </label>
                         <input type="text" name="schoolcode" class="form-control" placeholder="Enter School Code" style="width: 180px; margin-top:-4px; margin-left:10px; float:left;"   value="<?= set_value('schoolname'); ?>">
-                        <button type="submit" class="btn btn-success" style="margin-top:-4px; margin-left:20px; float:left;background-color: #FF8C00; border-color: #FF8C00;">Add School</button>
+                        <button type="submit" class="btn btn-success" style="margin-top:-4px; margin-left:20px; float:left;background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-plus"></i> Add School</button>
                  </div>
               </div>
         </div>

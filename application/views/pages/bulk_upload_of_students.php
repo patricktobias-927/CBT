@@ -10,12 +10,12 @@
                    <p><label>Select Excel File</label>
                    <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
                     <br>
-                    <input type="submit" name="import" value="Import" class="btn btn-info" style=""  />
+                    <button type="submit" name="import" class="btn btn-info" style=""><i class="fas fa-upload"></i> Import</button>
                     <!-- <a href="<? base_url('process_download'); ?>" class="btn btn-success">Download Template</a>    -->
                     </form>
                     <br>
                     <form method="post" action="<?php echo base_url(); ?>excel_export/action">
-                    <input type="submit" name="export" class="btn btn-success" value="Download Template" />
+                    <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Download Template</button>
                     </form>
                        <br>
                        <br>

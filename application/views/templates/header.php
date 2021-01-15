@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace Tools</title>
+    
     <script src="https://kit.fontawesome.com/5711d9d9ba.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -11,6 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/sidenav.css" class="css">
     <link rel="stylesheet" href="css/stylesheet.css" class="css">
+
+    <!-- selectpicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 
 </head>
 <body>
@@ -78,7 +83,10 @@
             <a class="nav-link" href="bulk_upload_of_students";><i class="fas fa-user-plus"></i> Bulk Upload of Student</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add_subject";><i class="fas fa-user-plus"></i> Add Subject</a>
+            <a class="nav-link" href="add_student";><i class="fas fa-user-plus"></i> Add Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_subject";><i class="fas fa-folder-plus"></i> Add Subject</a>
           </li>
           <?php }?>
             <br>
