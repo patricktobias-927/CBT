@@ -287,6 +287,36 @@ public function add_grade_level(){
     }
 } 
 
+public function add_custom_assessment(){
+        
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+    $this->form_validation->set_rules('assessment_type', 'Assessment Type', 'required'); 
+
+    if($this->form_validation->run() == FALSE){
+
+    $page = "add_custom_assessment";
+
+    if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+        show_404();
+    }   
+    $data['records'] = $this->Posts_model->get_custom_assessment();
+    // $data['school_record'] = $this->Posts_model->get_records_single();
+    // $data['school_code'] =  $data['school_record']['school_code'];
+    // $data['school_name'] =  $data['school_record']['school_name'];    
+    $data['title'] = "Add Custom Assessment";
+
+    $this->load->view('templates/header');
+    $this->load->view('pages/'.$page, $data);
+    $this->load->view('templates/footer');
+    }else{
+
+        $this->Posts_model->insert_custom_assessment();
+        $this->session->set_flashdata('custom_assessment_added', 'New Assessment Type was added');
+        redirect(base_url().'add_custom_assessment');
+
+    }
+} 
+
    public function addschedule(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');

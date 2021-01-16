@@ -75,6 +75,25 @@ function delete_subject_confirm(){
 // });
 </script>
 
+<script>
+jQuery('#birthdate').datetimepicker({
+ i18n:{
+  de:{
+   months:[
+    'Januar','Februar','März','April',
+    'Mai','Juni','Juli','August',
+    'September','Oktober','November','Dezember',
+   ],
+   dayOfWeek:[
+    "So.", "Mo", "Di", "Mi", 
+    "Do", "Fr", "Sa.",
+   ]
+  }
+ },
+ timepicker:false,
+ format:'d-m-Y'
+});
+</script>
 
 
 
@@ -88,6 +107,8 @@ function delete_subject_confirm(){
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
 
 <!-- datatables -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous"></script>

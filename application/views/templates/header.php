@@ -7,14 +7,19 @@
     
     <script src="https://kit.fontawesome.com/5711d9d9ba.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="js/jquery.datetimepicker.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/sidenav.css" class="css">
     <link rel="stylesheet" href="css/stylesheet.css" class="css">
-
     <!-- selectpicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+
+ 
 
 
 </head>
@@ -74,13 +79,16 @@
             <a class="nav-link" href="add_grade_level";><i class="fas fa-level-up-alt"></i> Grade Level</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add_section"";><i class="fas fa-user-friends"></i> Add Section</a>
+            <a class="nav-link" href="add_section"";><i class="fas fa-users-cog"></i> Add Section</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="school_and_section_list";><i class="fas fa-university"></i> School and Section List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bulk_upload_of_students";><i class="fas fa-user-plus"></i> Bulk Upload of Student</a>
+            <a class="nav-link" href="school_and_section_list";><i class="fas fa-users"></i> Student List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bulk_upload_of_students";><i class="fas fa-file-import"></i> Bulk Upload of Student</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="add_student";><i class="fas fa-user-plus"></i> Add Student</a>
@@ -88,9 +96,18 @@
           <li class="nav-item">
             <a class="nav-link" href="add_subject";><i class="fas fa-folder-plus"></i> Add Subject</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_custom_assessment";><i class="far fa-clipboard"></i> Custom Assessment Type</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_subject";><i class="fas fa-book"></i> Create Masterlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_subject";><i class="fas fa-file-download"></i> Preview and Download</a>
+          </li>
           <?php }?>
-            <br>
-            <br>
+         <br>
+         <br>
           <?php if($this->session->logged_in){?>
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Logout</a>
@@ -100,9 +117,9 @@
             <a class="nav-link" href="<?= base_url();?>login"></a>
           </li>
           <?php } ?>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href=""><i class="far fa-user"></i> <?= $this->session->fullname;?></a>
-            </li>
+            </li> -->
         </ul>
       </div>
     </nav>

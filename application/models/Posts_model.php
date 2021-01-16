@@ -46,6 +46,11 @@ class Posts_model extends CI_Model{
             $query = $this->db->get('cbt_add_batch');
             return $query->result_array();
         }
+
+        public function get_custom_assessment(){
+            $query = $this->db->get('cbt_add_custom_assessment');
+            return $query->result_array();
+        }
         
         public function get_subjects(){
             $query = $this->db->get('cbt_add_subject');
@@ -111,6 +116,25 @@ class Posts_model extends CI_Model{
         );
         return $this->db->insert('cbt_add_batch', $data);          
 }
+
+        public function insert_custom_assessment(){
+            $data = array (
+                'assessment_type' => $this->input->post('assessment_type'),
+                'course1' => $this->input->post('course1'),
+                'course2' => $this->input->post('course2'),
+                'course3' => $this->input->post('course3'),
+                'course4' => $this->input->post('course4'),
+                'course5' => $this->input->post('course5'),
+                'course6' => $this->input->post('course6'),
+                'course_code1' => $this->input->post('course_code1'),
+                'course_code2' => $this->input->post('course_code2'),
+                'course_code3' => $this->input->post('course_code3'),
+                'course_code4' => $this->input->post('course_code4'),
+                'course_code5' => $this->input->post('course_code5'),
+                'course_code6' => $this->input->post('course_code6')
+            );
+            return $this->db->insert('cbt_add_custom_assessment', $data);          
+        }
 
         public function insert_subject(){
             $data = array (
@@ -191,7 +215,7 @@ class Posts_model extends CI_Model{
                 'section1' => $this->input->post('section_1'),
                 'batch1' => $this->input->post('batch_1'),
                 'testing_date1' => $this->input->post('testing_date1'),
-                'assessment_1' => $this->input->post('select_1')
+                'assessment_1' => $this->input->post('hidden_framework')
 
                 
             );

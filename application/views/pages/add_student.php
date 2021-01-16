@@ -1,5 +1,5 @@
 <!-- <div class="container fluid "> -->
-<form name="bulk_action_form2" action="<?=base_url().'add_student'?>" method="post">
+<form name="multiple_select_form" action="<?=base_url().'add_student'?>" method="post">
 <h1> <?= $title;?> </h1>
 <?= validation_errors();?>
 <?php if($this->session->flashdata('student_added')) : ?> 
@@ -148,11 +148,13 @@
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_1" name="select_1" class="select" multiple data-live-search="true">
+                    <div class="col-md-9 col-sm-6"> <select id="select_1" name="select_1" class="selectpicker" data-live-search="true" >
+                <option value="" >Select Assessment</option>
                 <option value="Mustard">Mustard</option>
                 <option value="Ketchup">Ketchup</option>
                 <option value="Relish">Relish</option>
                 </select> </div> 
+                <input type="text" name="hidden_framework" id="hidden_framework" />
                 </div>
             </div>
         </div>       
@@ -619,7 +621,59 @@ btn5.addEventListener('click', ()=>{
 });
 </script>
 
-<script>$('.select').selectpicker();</script>
+
+<!-- SELECTPICKER -->
+<!-- 
+// $(document).ready(function(){
+//  $('.selectpicker').selectpicker();
+
+//  $('#select_1').change(function(){
+//   $('#hidden_framework').val($('#select_1').val());
+//  });
+
+//  $('#multiple_select_form').on('add', function(event){
+//   event.preventDefault();
+//   $('#hidden_framework').val('');
+//      $('.selectpicker').selectpicker('val', '');
+//  });
+// }); -->
+
+<!-- <script>
+$(document).ready(function(){
+ $('.selectpicker').selectpicker();
+
+ $('#framework').change(function(){
+  $('#hidden_framework').val($('#framework').val());
+ });
+
+ $('#multiple_select_form').on('add', function(event){
+  event.preventDefault();
+  if($('#framework').val() != '')
+  {
+   var form_data = $(this).serialize();
+   $.ajax({
+    url:"insert_select.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     //console.log(data);
+     $('#hidden_framework').val('');
+     $('.selectpicker').selectpicker('val', '');
+     alert(data);
+    }
+   })
+  }
+  else
+  {
+   alert("Please select framework");
+   return false;
+  }
+ });
+});
+</script> -->
+
+
 <script>
 $(function() {
   $('input[name="birthday"]').daterangepicker({
