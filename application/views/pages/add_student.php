@@ -91,7 +91,13 @@
         <div class="col-md-6 col-sm-6">
             <div class="row">
                 <div class="col-md-2 col-sm-6"><label for="">School: </label></div> 
-                <div class="col-md-9 col-sm-6"> <input id="school_name" name="school_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="School"></div> 
+                <div class="col-md-9 col-sm-6">  <select name="school_name" id="school_name"class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px;" onchange="singleSelectChangeValue()">
+                    <option value=""></option>
+                    <?php foreach($schools as $row){?>
+                    <option value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
+                    <?php } ?>
+                </select></div> 
+               
                 </div>
             </div>
         </div>       
@@ -105,7 +111,14 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-start" style="">
                <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Grade level :</label></div> 
-               <div class="col-md-8 col-sm-6 d-md-inline"> <input id="grade_level" name="grade_level" class="form-control" style="width: 68% !important; " type="text" style="" placeholder="Grade level"></div> 
+               <div class="col-md-8 col-sm-6 d-md-inline">
+               <select name="grade_level" id="grade_level" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select>  
+                </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6"><a class="btn btn-info" id="toggle"><i class="fas fa-plus"></i> Add Previous Records</a></div> 
@@ -142,19 +155,24 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Grade level : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="grade_level1" name="grade_level1" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Grade Level"></div> 
+               <div class="col-md-9 col-sm-6">   <select name="grade_level1" id="grade_level1" class="form-control" style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select>   </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_1" name="select_1" class="selectpicker" data-live-search="true" >
-                <option value="" >Select Assessment</option>
-                <option value="Mustard">Mustard</option>
-                <option value="Ketchup">Ketchup</option>
-                <option value="Relish">Relish</option>
+                    <div class="col-md-9 col-sm-6"> <select id="select_1" name="select_1" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue()" >
+                    <option value=""></option>
+                    <?php foreach($assessment as $row){?>
+                    <option value="<?= $row['assessment_type'];?>"><?= $row['assessment_type'];?></option>
+                    <?php } ?>
                 </select> </div> 
-                <input type="text" name="hidden_framework" id="hidden_framework" />
+                <input type="hidden" name="hidden_framework" id="hidden_framework" />
                 </div>
             </div>
         </div>       
@@ -176,7 +194,12 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Section : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="section_1" name="section_1" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"></div> 
+               <div class="col-md-9 col-sm-6">  <select name="section_1" id="section_1" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <?php } ?>
+                </select> </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -188,7 +211,7 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Testing Date : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="testing_date1" name="testing_date1" class="form-control" style="width: 60% !important;  margin-top: 10px;" type="text" style="" placeholder="Testing Date"></div> 
+               <div class="col-md-9 col-sm-6"> <input id="testing_date1" name="testing_date1" class="form-control" style="width: 60% !important;  margin-top: 10px; " type="text" placeholder="Testing Date"></div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -200,7 +223,13 @@
             <div class="col-md-6 col-sm-6">
                 <div class="row justify-content-end" style="">
                 <div class="col-md-2 col-sm-6" style="margin-top: 15px;"><label for="">Batch : </label></div> 
-                <div class="col-md-9 col-sm-6" > <input id="batch_1" name="batch_1" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Batch"></div> 
+                <div class="col-md-9 col-sm-6" > <br><select name="batch_1" id="batch_1" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($batch_records as $row){?>
+                    <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
+                    <?php } ?>
+                </select> </div> 
+                <!-- <input id="batch_1" name="batch_1" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Batch"> -->
                 </div>
             </div>
             <div class="col-md-6 col-sm-6"><a class="btn btn-secondary" id="toggle2"><i class="fas fa-plus"></i> Add more</a></div> 
@@ -211,7 +240,7 @@
 
 
 
-<!-- <div style="display:none;" class="container respondent_id2">
+<div style="display:none;" class="container respondent_id2">
 <div class="container-fluid px-0">
     <div class="row align-items-center">
         <div class="col-md-6 col-sm-6">
@@ -235,11 +264,13 @@
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_2" name="select_2" class="select" multiple data-live-search="true">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Relish</option>
-                </select> </div> 
+                    <div class="col-md-9 col-sm-6"> <select id="select_2" name="select_2" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue2()">
+                    <option value=""></option>
+                    <?php foreach($assessment as $row){?>
+                    <option value="<?= $row['assessment_type'];?>"><?= $row['assessment_type'];?></option>
+                    <?php } ?>
+                </select> </div>
+                <input type="hidden" name="hidden_framework2" id="hidden_framework2">
                 </div>
             </div>
         </div>       
@@ -261,7 +292,15 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Section : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="section_2" name="section_2"  class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"></div> 
+               <div class="col-md-9 col-sm-6">
+               <select name="section_2" id="section_2" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input id="section_2" name="section_2"  class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
+                </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -285,7 +324,15 @@
             <div class="col-md-6 col-sm-6">
                 <div class="row justify-content-end" style="">
                 <div class="col-md-2 col-sm-6" style="margin-top: 15px;">  <label for="">Batch : </label></div> 
-                <div class="col-md-9 col-sm-6" style="margin-top: 8px;" > <input id="batch_2" name="batch_2" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"></div> 
+                <div class="col-md-9 col-sm-6" style="margin-top: 8px;" >
+                <select name="batch_2" id="batch_2" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($batch_records as $row){?>
+                    <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
+                    <?php } ?>
+                </select>
+                 <!-- <input id="batch_2" name="batch_2" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"> -->
+                 </div> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-6"><a class="btn btn-secondary" id="toggle3"><i class="fas fa-plus"></i> Add more</a></div> 
@@ -313,17 +360,24 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Grade level : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="grade_level3" name="grade_level3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Grade Level"></div> 
+               <div class="col-md-9 col-sm-6">  <select name="grade_level3" id="grade_level3" class="form-control" style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select> </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_3" name="select_3" class="select" multiple data-live-search="true">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Relish</option>
+                    <div class="col-md-9 col-sm-6"> <select id="select_3" name="select_3" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue3()">
+                    <option value=""></option>
+                    <?php foreach($assessment as $row){?>
+                    <option value="<?= $row['assessment_type'];?>"><?= $row['assessment_type'];?></option>
+                    <?php } ?>
                 </select> </div> 
+                <input type="hidden" name="hidden_framework3" id="hidden_framework3" />
                 </div>
             </div>
         </div>       
@@ -345,7 +399,15 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Section : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="section_3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"></div> 
+               <div class="col-md-9 col-sm-6">
+               <select name="section_3" id="section_3" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input id="section_3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
+                </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -369,7 +431,15 @@
             <div class="col-md-6 col-sm-6">
                 <div class="row justify-content-end" style="">
                 <div class="col-md-2 col-sm-6" style="margin-top: 15px;"><label for="">Batch : </label></div> 
-                <div class="col-md-9 col-sm-6" style="margin-top: 8px;"> <input id="batch_3" name="batch_3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"></div> 
+                <div class="col-md-9 col-sm-6" style="margin-top: 8px;">
+                <select name="batch_3" id="batch_3" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($batch_records as $row){?>
+                    <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
+                    <?php } ?>
+                </select>
+                 <!-- <input id="batch_3" name="batch_3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"> -->
+                 </div> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-6"><a class="btn btn-secondary" id="toggle4"><i class="fas fa-plus"></i> Add more</a></div> 
@@ -396,17 +466,27 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Grade level : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="grade_level_4" name="grade_level_4" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Grade Level"></div> 
+               <div class="col-md-9 col-sm-6"> 
+               <select name="grade_level4" id="grade_level4" class="form-control" style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select>
+               <!-- <input id="grade_level_4" name="grade_level_4" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Grade Level"> -->
+               </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_4" name="select_4" class="select" multiple data-live-search="true">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Relish</option>
+                    <div class="col-md-9 col-sm-6"> <select id="select_4" name="select_4" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue4()">
+                    <option value=""></option>
+                    <?php foreach($assessment as $row){?>
+                    <option value="<?= $row['assessment_type'];?>"><?= $row['assessment_type'];?></option>
+                    <?php } ?>
                 </select> </div> 
+                <input type="hidden" name="hidden_framework4" id="hidden_framework4" />
                 </div>
             </div>
         </div>       
@@ -428,7 +508,15 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Section : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input class="form-control" id="section_4" name="section_4" style="width: 60% !important;" type="text" style="" placeholder="Section"></div> 
+               <div class="col-md-9 col-sm-6">
+               <select name="section_4" id="section_4" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input class="form-control" id="section_4" name="section_4" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
+                </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -452,7 +540,15 @@
             <div class="col-md-6 col-sm-6">
                 <div class="row justify-content-end" style="">
                 <div class="col-md-2 col-sm-6" style="margin-top: 15px;"><label for="">Batch : </label></div> 
-                <div class="col-md-9 col-sm-6" style="margin-top: 8px;"> <input id="batch_4" name="batch_4" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"></div> 
+                <div class="col-md-9 col-sm-6" style="margin-top: 8px;"> 
+                <select name="batch_4" id="batch_4" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($batch_records as $row){?>
+                    <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input id="batch_4" name="batch_4" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"> -->
+                </div> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-6"><a class="btn btn-secondary" id="toggle5"><i class="fas fa-plus"></i> Add more</a></div> 
@@ -479,17 +575,27 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Grade level : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="grade_level5" name="grade_level5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Grade Level"></div> 
+               <div class="col-md-9 col-sm-6">
+               <select name="grade_level5" id="grade_level5" class="form-control" style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input id="grade_level5" name="grade_level5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Grade Level"> -->
+                </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
                 <div class="row">
                     <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
-                    <div class="col-md-9 col-sm-6"> <select id="select_5" name="select_5" class="select" multiple data-live-search="true">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Relish</option>
+                    <div class="col-md-9 col-sm-6"> <select id="select_5" name="select_5" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue5()">
+                    <option value=""></option>
+                    <?php foreach($assessment as $row){?>
+                    <option value="<?= $row['assessment_type'];?>"><?= $row['assessment_type'];?></option>
+                    <?php } ?>
                 </select> </div> 
+                <input type="hidden" name="hidden_framework5" id="hidden_framework5" />
                 </div>
             </div>
         </div>       
@@ -511,7 +617,15 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Section : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="section_5" name="section_5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"></div> 
+               <div class="col-md-9 col-sm-6"> 
+               <select name="section_5" id="section_5" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <?php } ?>
+                </select>
+               <!-- <input id="section_5" name="section_5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
+               </div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -523,7 +637,7 @@
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">Testing Date : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="testing_date5" name="section_5" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Testing Date"></div> 
+               <div class="col-md-9 col-sm-6"> <input id="testing_date5" name="testing_date5" class="form-control" style="width: 60% !important; margin-top: 10px;" type="text" style="" placeholder="Testing Date"></div> 
             </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -535,14 +649,23 @@
             <div class="col-md-6 col-sm-6">
                 <div class="row justify-content-end" style="">
                 <div class="col-md-2 col-sm-6" style="margin-top: 15px;"><label for="">Batch : </label></div> 
-                <div class="col-md-9 col-sm-6" style="margin-top: 8px;"> <input id="batch_5" name="batch_5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"></div> 
+                <div class="col-md-9 col-sm-6" style="margin-top: 8px;">
+                <select name="batch_5" id="batch_5" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($batch_records as $row){?>
+                    <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
+                    <?php } ?>
+                </select>
+                 <!-- <input id="batch_5" name="batch_5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Batch"> -->
+                 </div> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-6"></div> 
         </div>   
     </div>
           
-</div>   -->
+</div>  
+
 
         <button type="button" class="top-of-site-link" onclick="topFunction()" id="myBtn" title="Go to top"><svg width="32" height="32" viewBox="0 0 100 100">
         <path fill="white" d="m50 0c-13.262 0-25.98 5.2695-35.355 14.645s-14.645 22.094-14.645 35.355 5.2695 25.98 14.645 35.355 22.094 14.645 35.355 14.645 25.98-5.2695 35.355-14.645 14.645-22.094 14.645-35.355-5.2695-25.98-14.645-35.355-22.094-14.645-35.355-14.645zm20.832 62.5-20.832-22.457-20.625 22.457c-1.207 0.74219-2.7656 0.57812-3.7891-0.39844-1.0273-0.98047-1.2695-2.5273-0.58594-3.7695l22.918-25c0.60156-0.61328 1.4297-0.96094 2.2891-0.96094 0.86328 0 1.6914 0.34766 2.293 0.96094l22.918 25c0.88672 1.2891 0.6875 3.0352-0.47266 4.0898-1.1562 1.0508-2.9141 1.0859-4.1133 0.078125z"></path>
@@ -550,6 +673,7 @@
         </button>
 
         </form>
+
 
 
       
@@ -672,7 +796,49 @@ $(document).ready(function(){
  });
 });
 </script> -->
+<script>
+function singleSelectChangeValue() {
+        //Getting Value
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("select_1");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("hidden_framework").value = selValue;
+    }
 
+    function singleSelectChangeValue2() {
+        //Getting Value
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("select_2");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("hidden_framework2").value = selValue;
+    }
+    function singleSelectChangeValue3() {
+        //Getting Value
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("select_3");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("hidden_framework3").value = selValue;
+    }
+    function singleSelectChangeValue4() {
+        //Getting Value
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("select_4");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("hidden_framework4").value = selValue;
+    }
+    function singleSelectChangeValue5() {
+        //Getting Value
+        //var selValue = document.getElementById("singleSelectDD").value;
+        var selObj = document.getElementById("select_5");
+        var selValue = selObj.options[selObj.selectedIndex].value;
+        //Setting Value
+        document.getElementById("hidden_framework5").value = selValue;
+    }
+</script>
 
 <script>
 $(function() {
