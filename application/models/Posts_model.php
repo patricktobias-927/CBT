@@ -250,6 +250,11 @@ class Posts_model extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_students_list(){
+            $query = $this->db->get('cbt_students');
+            return $query->result_array();
+        }
+
         public function update_post(){
             $id = $this->input->post('id');
             $data = array (

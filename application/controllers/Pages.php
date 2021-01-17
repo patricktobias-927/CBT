@@ -630,6 +630,37 @@ public function add_section(){
             }
         } 
 
+        public function student_list(){
+        
+            // $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+            // // $this->form_validation->set_rules('schoolcode', 'School name', 'required'); 
+            // $this->form_validation->set_rules('school_year', 'School year', 'required'); 
+            // // $this->form_validation->set_rules('testing_date', 'Testing date', 'required'); 
+            // $this->form_validation->set_rules('no_of_takers', 'No of takers', 'required'); 
+        
+            if($this->form_validation->run() == FALSE){
+        
+            $page = "student_list";
+        
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }   
+
+            $data['students'] = $this->Posts_model->get_students_list();
+            
+            
+            $data['title'] = "Students List";
+            $this->load->view('templates/header');
+            $this->load->view('pages/'.$page, $data);
+            $this->load->view('templates/footer');
+            }else{
+        
+                // $this->session->set_flashdata('post_added_schedule', 'New Schedule was Added!');
+                // redirect(base_url().'school_and_section_list');
+        
+            }
+        } 
+
         public function bulk_upload_of_students(){
         
             // $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');

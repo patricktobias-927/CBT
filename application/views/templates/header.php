@@ -85,7 +85,7 @@
             <a class="nav-link" href="school_and_section_list";><i class="fas fa-university"></i> School and Section List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="school_and_section_list";><i class="fas fa-users"></i> Student List</a>
+            <a class="nav-link" href="student_list";><i class="fas fa-users"></i> Student List</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="bulk_upload_of_students";><i class="fas fa-file-import"></i> Bulk Upload of Student</a>
