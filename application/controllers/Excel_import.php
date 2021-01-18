@@ -82,7 +82,7 @@ class Excel_import extends CI_Controller
       'grade_level'   => $Grade_level,
       'school_name'   => $School_name,
       'respondent_number1'    => $Respondent_number1,
-      'level1'   => $level1,
+      'grade_level1'   => $level1,
       'section1'   => $section1,
       'batch1'    => $batch1,
       'testing_date1'  => $testing_date1R

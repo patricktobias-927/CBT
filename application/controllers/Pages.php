@@ -616,6 +616,7 @@ public function add_section(){
             }   
 
             $data['records'] = $this->Posts_model->get_sections_filter();
+            $data['sections'] = $this->Posts_model->get_sections();
             
             
             $data['title'] = "Schools and Sections List";

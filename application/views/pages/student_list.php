@@ -30,7 +30,7 @@
                
                 <tr>
                 <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th>
-                <td><?= $row['last_name'].' , '.$row['first_name'].' , '.$row['middle_name'];?></td>
+                <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td>
                 <td><?= $row['school_name'];?></td>
                 <td><?= $row['gender'];?></td>
                 <td><?= $row['birth_date'];?></td>

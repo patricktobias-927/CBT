@@ -38,7 +38,7 @@
   <ul class="navbar-nav px-4">
   <?php if($this->session->logged_in){?>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Logout</a>
+            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i>Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">
@@ -110,7 +110,7 @@
          <br>
           <?php if($this->session->logged_in){?>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Logout</a>
+            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">

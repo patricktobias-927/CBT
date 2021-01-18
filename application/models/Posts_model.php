@@ -36,9 +36,12 @@ class Posts_model extends CI_Model{
 
         public function get_sections_filter(){
 
-            $query = $this->db->query("SELECT school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
+            $query = $this->db->query("SELECT school_id, school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
             FROM cbt_add_section GROUP BY school_code;");
             return $query->result_array();
+            // $query = $this->db->query("SELECT school_code, count(*) section_name, school_name, SUM(population) AS value_sum 
+            // FROM cbt_add_section GROUP BY school_code;");
+            // return $query->result_array();
             // $this->db->insert('cbt_add_sections', $query->row_array());
         }
 
@@ -251,8 +254,17 @@ class Posts_model extends CI_Model{
         }
 
         public function get_students_list(){
-            $query = $this->db->get('cbt_students');
+            
+            $query = $this->db->query("SELECT LRN, first_name, middle_name, last_name, school_name, gender,  birth_date
+           FROM cbt_students GROUP BY LRN;");
+            // $dateofBirth = 'birth_date';
+            // $today = date("Y-d-m");
+            // $diff = date_diff(date_create($dateofBirth), date_create($today));
+
             return $query->result_array();
+
+            // $query = $this->db->get('cbt_students');
+            // return $query->result_array();
         }
 
         public function update_post(){
