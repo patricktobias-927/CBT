@@ -16,7 +16,7 @@
            <div class="form-group">
            <br>   
                 <label for="title" style=" float:left;" >Batch Name:   </label>
-                <input type="text" name="batch" class="form-control" placeholder="Enter Batch Name" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+                <input type="text" name="batch" class="form-control" placeholder="Batch Name" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
                 <button type="submit" class="btn btn-success" style="width: 15%; margin-left:16px; margin-top:-4px; float:left;background-color: #FF8C00; border-color: #FF8C00;">Add</button>
 
             <br>      
@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-lg-12">  
            <form name="bulk_action_form2" action="<?= base_url().'delete_batch'?> " method="post" onSubmit="return  ();"/>
-           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 475px;  width:15%; margin-top:-67px;">Delete</button> 
+           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 475px;  width:15%; margin-top:-70px;">Delete</button> 
              <div class="form-group">
              <br>
              <button style="float:right; display: none;"></button></div>

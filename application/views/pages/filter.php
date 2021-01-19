@@ -10,15 +10,16 @@ class Filter extends CI_Controller {
         $this->load->view('pages/add_section', $data, FALSE);
     }
 
-    public function load_mahisaswa()
+    public function filter()
     {
-        $schools = $this->input->post('schools');
+        $schools = $this->input->get('schools');
         if ($schools == 0) {
-            $data = $this->db->get('cbt_add_section')->result();
+            $query = $this->db->get('cbt_add_school');
+            return $query->result();
         }
         else
         {
-        $data = $this->db->get_where('cbt_add_section', ['school_name'=>$schools])->results();
+        $data = $this->db->get_where('cbt_add_section', ['school_code'=>$schools])->results();
     }
     if (!empty($data))
     {

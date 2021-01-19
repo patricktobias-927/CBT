@@ -95,6 +95,24 @@ class Posts_model extends CI_Model{
             // $this->db->insert('cbt_add_sections', $query->row_array());
         }
 
+    
+        // public function getRecords(){
+        //     $query = $this->db->get('cbt_add_section');
+        //     return $query->result_array();
+        // }
+        // public function getRecordsWhere($price){
+
+        //     $query = $this->db->query("SELECT * FROM cbt_add_section WHERE school_code = ".$school_code."");
+        //     return $query->result_array();
+
+        //     // $query="SELECT * from product where prod_price < ".$price."";
+        //     // $result=mysqli_query($this->$con,$query);
+        //     // return $result;
+        // }
+
+
+
+
             public function insert_post(){
                 $data = array (
                     'school_name' => $this->input->post('schoolname'),
@@ -363,8 +381,16 @@ class Posts_model extends CI_Model{
         }
     }
 
-            //search section
-      
+       
+      public function filter_section(){
+        $section = $this->input->post('schools');
+                    
+        if($section != ""){
+        $query = $this->db->select('*')->where('school_code', $section)->get('cbt_add_section');
+        return $query->result_array();
+        }
+       
+      }
     }
 
 

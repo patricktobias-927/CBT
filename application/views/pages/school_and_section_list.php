@@ -9,7 +9,7 @@
         </div> -->
 <div class="container">
     <div class="row justify-content-start align-items-center">
-        <div class="col-sm-2" >  
+        <div class="col-sm-6" >  
             <form method="post" action="<?php echo base_url(); ?>export_section_list/action">
             <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Print All</button>
             </form>
@@ -17,6 +17,7 @@
 
         <div class="col-sm-6 align-self-end"> 
             <form method="post" action="<?php echo base_url(); ?>export_section_list_single/action">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
                 <select id="select_school" name="select_school" class="selectpicker" data-live-search="true" onchange="singleSelectChangeofValue()">
                 <option value=""></option>
                 <?php foreach($records as $row){?>
@@ -26,8 +27,8 @@
                 <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Print Selected School</button>
             </form>         
         </div>  
-        <div class="col-sm-1 align-self-end">    </div>
-        <div class="col-sm-1 align-self-end">    </div>
+        <!-- <div class="col-sm-1 align-self-end">    </div>
+        <div class="col-sm-1 align-self-end">    </div> -->
     </div>
 </div>
       
@@ -43,7 +44,7 @@
         <table class="table table-bordered table-striped" id="school_list_table" style="">
             <thead>
                 <tr>
-                <th></th>
+
                 <th scope="col">School Code</th>
                 <th scope="col">School Name</th>
                 <th scope="col">Number of Sections</th>
@@ -54,7 +55,6 @@
             <?php foreach($records as $row){?>
                
                 <tr>
-                <td> </td>
                 <!-- <td><input type="checkbox" name="selected_section_id" id="selected_section_id" class="checkbox" value="<?= $row['school_id'];?>" onchange="singleSelectChangeofValue()"><?= $row['school_id'];?></td> -->
                 <td scope="row" style="font-weight:bold"><?= $row['school_code'];?></th>
                 <td><?= $row['school_name'];?></td>

@@ -16,7 +16,7 @@
            <div class="form-group">
            <br>   
                 <label for="title" style=" float:left;" >Subject:   </label>
-                <input type="text" name="subject" class="form-control" placeholder="Enter Subject" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+                <input type="text" name="subject" class="form-control" placeholder="Subject" style="width: 200px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
                 <button type="submit" class="btn btn-success" style="width: 15%; margin-left:16px; margin-top:-4px; float:left;background-color: #FF8C00; border-color: #FF8C00;">Add</button>
              
             <br>      

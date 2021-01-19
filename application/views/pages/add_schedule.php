@@ -33,12 +33,12 @@
             <label for="title"  style="float:left; margin-left:30px; ">School Year:</label>
             <input type="text" name="school_year" class="form-control" placeholder="ex. 2020-2021" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
             <label for="title" style="float:left; margin-left:50px;">Testing Date:</label>
-            <input type="text" name="daterange" class="form-control" style="width: 220px; margin-left:10px; margin-top:-4px; float:left;" value="" />
+            <input type="text" name="daterange" class="form-control" style="width: 225px; margin-left:10px; margin-top:-4px; float:left;" value="" />
             <br>
             <br>   
             <br>
             <label for="title"  style="float:left;">No. of test Takers:</label>
-            <input type="text" name="no_of_takers" class="form-control" placeholder="Enter No. of test Takers" style="width: 195px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+            <input type="text" name="no_of_takers" class="form-control" placeholder="No. of test Takers" style="width: 195px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
             <button type="submit" class="btn btn-success" style="margin-left:37px; margin-top:-4px; float:left; background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-plus"></i> Add Schedule</button>
             <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="margin-left:185px; margin-top:-4px; float:left;">Add Schedule</button> -->
       

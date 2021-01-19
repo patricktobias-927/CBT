@@ -5,21 +5,54 @@ echo $this->session->fullname;
 echo " !"; ?>
  <?php } else { ?>
  
-<div class="container fluid">
-<div class="row">
-<div class="col-sm-12">
+
 <br>
 
-<h1>User Login</h1>
+
 <hr>
 
-</div>
+
 <?php if($this->session->flashdata('failed_login')) : ?>
 <?= '<p class="alert alert-danger">'.$this->session->flashdata('failed_login').'</p>' ?>
 <?php endif;?>
 
 <?= form_open('login');?>
-<div class="row">
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+    <h3></h3>
+    <h3>Log In</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"> -->
+      <?= validation_errors();?>
+
+             <input type="text" id="username" class="fadeIn second" name="username" value="<?= set_value('username'); ?>" class="form-control"
+             autocomplete="on" placeholder="username">
+             <input type="password" style=""  name="password" placeholder="password" class="fadeIn third">
+      <!-- <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> -->
+      <input type="submit" class="fadeIn fourth" value="Log In">
+      
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">CBT MASTERLIST GENERATOR</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- <div class="row">
 <div class="col-sm-12">
 <div class="form-group">
 <?= validation_errors();?>
@@ -50,7 +83,7 @@ echo " !"; ?>
 </div>
 </div>
 </div>
-</div>
+</div> -->
 <?php } ?>
 <!-- <div class="row" style="margin-left: 200px">
 	<aside class="col-sm-4">

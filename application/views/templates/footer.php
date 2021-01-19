@@ -120,6 +120,7 @@ jQuery('#birthdate').datetimepicker({
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 
 
+  
 </body>
 <script>
 
@@ -210,5 +211,7 @@ $(function() {
 });
 
 
+
 </script>
+
 </html>

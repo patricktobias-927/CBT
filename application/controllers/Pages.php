@@ -379,7 +379,7 @@ public function add_section(){
     $data['sections'] = $this->Posts_model->get_sections();
  
    
-    
+    $data['query'] = $this->Posts_model->filter_section();
     $data['title'] = "Add Section";
     $this->load->view('templates/header');
     $this->load->view('pages/'.$page, $data);

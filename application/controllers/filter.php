@@ -10,33 +10,40 @@ class Filter extends CI_Controller {
         $this->load->view('pages/add_section', $data, FALSE);
     }
 
-    public function load_mahisaswa()
+    public function load_filter()
     {
+           $schools = $_GET['schools'];
+        // $schools = $this->input->post('schools');
         
-        $schools = $_GET('schools');
         if ($schools == 0) {
             $data = $this->db->get('cbt_add_section')->result();
+        //     // $data = $this->db->select('*')->get('cbt_add_school')->result();
+        // //     $query = $this->db->get('cbt_add_section');
+        // //     return $query->result_array();
         }
         else
         {
-        $data = $this->db->get_where('cbt_add_section', ['school_id'=>$schools])->results();
-    }
+            // $data = $this->db->select('*')->where('school_id', $schools)->get('cbt_add_section');
+            // return $query->result();
+        $data = $this->db->get_where('cbt_add_section', ['school_id'=>$schools])->result(); 
+        }
     if (!empty($data))
     {
-      
-      foreach($data as $row): ?>
+  
+      $no=1;foreach($data as $row): ?>
             <tr>
-            <!-- <td><?= $row['school_id'];?></td> -->
-            <td scope="row" style="font-weight:bold"><?= $row['school_code'];?></th>
-            <td><?= $row['grade'];?></td>
-            <td><?= $row['section_name'];?></td>
-            <td><?= $row['section_code'];?></td>
-            <td><?= $row['school_year'];?></td>
-            <td><?= $row['population'];?></td>
+            <td><?php echo $row->school_id ?></td>
+            <td scope="row" style="font-weight:bold"><?php echo $row->school_code ?></th>
+            <td><?php echo $row->grade ?></td>
+            <td><?php echo $row->section_name ?></td>
+            <td><?php echo $row->section_code ?></td>
+            <td><?php echo $row->school_year ?></td>
+            <td><?php echo $row->population ?></td>
             </tr>
 
-            <?php endforeach?> <?php    
+            <?php endforeach ?> <?php    
 
+ 
     }
     else
     {

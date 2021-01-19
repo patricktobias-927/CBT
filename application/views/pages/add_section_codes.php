@@ -23,7 +23,7 @@
         <div class="form-group">
                  <br>   
                      <label for="" style=" float:left;" >Section Code:   </label>
-                       <input type="text" name="section_code" id="section_code" class="form-control" placeholder="Enter Section Code" style="width: 180px; margin-top:-4px;"   value="">
+                       <input type="text" name="section_code" id="section_code" class="form-control" placeholder="Section Code" style="width: 180px; margin-top:-4px;"   value="">
                      
                        <button type="submit"  id="add_button" class="btn btn-success" style="width: 170px;  margin-top:-4px; margin-left:40px; background-color: #FF8C00; border-color: #FF8C00;  ">Add</button>
                       <button style="float:right; display: none;"></button></div>
@@ -41,7 +41,7 @@
          <div class="col-12">  
    
            <form name="bulk_action_form2" class="" action="<?=base_url().'delete_section_codes'?>" method="post" onSubmit="return delete_confirm();"/>
-           <button type="submit" id="delete_button" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 505px;width:15%; margin-top:-60px;">Delete</button>
+           <button type="submit" id="delete_button" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="margin-left: 505px;width:15%; margin-top:-65px;">Delete</button>
              <div class="form-group">
              <br>  
          
