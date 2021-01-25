@@ -200,6 +200,7 @@ public function add_student(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
     $this->form_validation->set_rules('LRN', 'LRN', 'required'); 
+    $this->form_validation->set_rules('section', 'Section', 'required'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -210,9 +211,11 @@ public function add_student(){
     }   
     $data['schools'] = $this->Posts_model->get_records();
     $data['grade_records'] = $this->Posts_model->get_grade_level();
-    $data['sections'] = $this->Posts_model->get_sections();
+    // $data['sections'] = $this->Posts_model->get_sections();
     $data['batch_records'] = $this->Posts_model->get_batch();
     $data['assessment'] = $this->Posts_model->get_custom_assessment();
+    $data['students_records'] = $this->Posts_model->get_LRN();
+    $data['sections'] = $this->Posts_model->get_sections();
     // $data['school_record'] = $this->Posts_model->get_records_single();
     // $data['school_code'] =  $data['school_record']['school_code'];
     // $data['school_name'] =  $data['school_record']['school_name'];    
@@ -646,10 +649,12 @@ public function add_section(){
             if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
                 show_404();
             }   
-
+            
+            $data['sections'] = $this->Posts_model->get_sections();
             $data['students'] = $this->Posts_model->get_students_list();
-            
-            
+            $data['records'] = $this->Posts_model->get_LRN();
+            $data['schools'] = $this->Posts_model-> get_records();
+
             $data['title'] = "Students List";
             $this->load->view('templates/header');
             $this->load->view('pages/'.$page, $data);

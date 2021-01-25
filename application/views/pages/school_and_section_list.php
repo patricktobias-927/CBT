@@ -11,7 +11,7 @@
     <div class="row justify-content-start align-items-center">
         <div class="col-sm-6" >  
             <form method="post" action="<?php echo base_url(); ?>export_section_list/action">
-            <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Print All</button>
+            <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Export All</button>
             </form>
         </div>
 
@@ -24,7 +24,7 @@
                 <option value="<?= $row['school_code'];?>"><?= $row['school_name'];?></option>
                 <?php } ?>
                 </select>
-                <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Print Selected School</button>
+                <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Export Selected</button>
             </form>         
         </div>  
         <!-- <div class="col-sm-1 align-self-end">    </div>

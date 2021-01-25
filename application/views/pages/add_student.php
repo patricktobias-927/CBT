@@ -121,6 +121,55 @@
                 </div> 
             </div>
         </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="row justify-content-start" style="">
+               <div class="col-md-2 col-sm-6" style=""><label for="">Section :</label></div> 
+               <div class="col-md-8 col-sm-6 d-md-inline">
+               <select name="section" id="section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($sections as $row){?>
+                    <option value="<?= $row['section_id'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
+                    <?php } ?>
+                </select>  
+                
+                </div> 
+            </div>
+        </div>
+        
+        <!-- <div class="col-md-6 col-sm-6"><a class="btn btn-info" id="toggle"><i class="fas fa-plus"></i> Add Previous Records</a></div>  -->
+        <!-- <div class="col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><a class="btn btn-primary" id="toggle">Has Records?</a></div> 
+                <div class="col-md-6 col-sm-6"></div> 
+                </div>
+            </div> -->
+            
+        </div>       
+    </div>
+
+       <br>
+       <br>     
+       <br>   
+       <br>
+ 
+
+    <div class="container-fluid px-0">
+    <div class="row">
+           <br>
+        <div class="col-md-6 col-sm-6">
+            <div class="row justify-content-start" style="">
+               <!-- <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Grade level :</label></div> 
+               <div class="col-md-8 col-sm-6 d-md-inline">
+               <select name="grade_level" id="grade_level" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value=""></option>
+                    <?php foreach($grade_records as $row){?>
+                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                    <?php } ?>
+                </select>  
+                </div>  -->
+            </div>
+        </div>
+        
         <div class="col-md-6 col-sm-6"><a class="btn btn-info" id="toggle"><i class="fas fa-plus"></i> Add Previous Records</a></div> 
         <!-- <div class="col-md-6 col-sm-6">
             <div class="row">
@@ -129,7 +178,8 @@
                 </div>
             </div> -->
         </div>       
-    </div>     
+    </div>    
+
     <br>
     <br>
     <br>
@@ -197,7 +247,7 @@
                <div class="col-md-9 col-sm-6">  <select name="section_1" id="section_1" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
                     <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <option value="<?= $row['section_code'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
                     <?php } ?>
                 </select> </div> 
             </div>
@@ -296,7 +346,7 @@
                <select name="section_2" id="section_2" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
                     <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <option value="<?= $row['section_code'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
                     <?php } ?>
                 </select>
                 <!-- <input id="section_2" name="section_2"  class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
@@ -403,7 +453,7 @@
                <select name="section_3" id="section_3" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
                     <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <option value="<?= $row['section_code'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
                     <?php } ?>
                 </select>
                 <!-- <input id="section_3" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
@@ -512,7 +562,7 @@
                <select name="section_4" id="section_4" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
                     <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <option value="<?= $row['section_code'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
                     <?php } ?>
                 </select>
                 <!-- <input class="form-control" id="section_4" name="section_4" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
@@ -621,7 +671,7 @@
                <select name="section_5" id="section_5" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
                     <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_name'];?>"><?= $row['section_name'];?></option>
+                    <option value="<?= $row['section_code'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
                     <?php } ?>
                 </select>
                <!-- <input id="section_5" name="section_5" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Section"> -->
@@ -840,7 +890,8 @@ function singleSelectChangeValue() {
     }
 </script>
 
-<script>
+<!-- BIRTHDATE -->
+<!-- <script>
 $(function() {
   $('input[name="birthday"]').daterangepicker({
     singleDatePicker: true,
@@ -854,7 +905,7 @@ $(function() {
     
   });
 });
-</script>
+</script> -->
 
 <script>
 //Get the button

@@ -90,7 +90,7 @@ class Posts_model extends CI_Model{
         }
 
         public function get_LRN(){
-            $query = $this->db->get('cbt_add_student');
+            $query = $this->db->get('cbt_students');
             return $query->result_array();
             // $this->db->insert('cbt_add_sections', $query->row_array());
         }
@@ -192,6 +192,7 @@ class Posts_model extends CI_Model{
         
         //insert student
         public function insert_student(){
+            $section_id = $this->input->post('section');
             $data = array (
                 'LRN' => $this->input->post('LRN'),
                 'phoenix_student_code' => $this->input->post('phoenix_student_code'),
@@ -201,7 +202,7 @@ class Posts_model extends CI_Model{
                 'birth_date' => $this->input->post('birthday'),
                 'gender' => $this->input->post('gender'),
                 'grade_level' => $this->input->post('grade_level'),
-                'school_name' => $this->input->post('school_name'),
+                'school_code' => $this->input->post('school_name'),
                 
                 'respondent_number2' => $this->input->post('respondent_number2'),
                 'grade_level2' => $this->input->post('grade_level2'),
@@ -239,8 +240,18 @@ class Posts_model extends CI_Model{
                 'assessment_1' => $this->input->post('hidden_framework')
 
             );
-            return $this->db->insert('cbt_students', $data);      
-        }  
+            $select = $this->db->select('section_name, section_code')->where('section_id', $section_id)->get('cbt_add_section');
+            if($select->num_rows())
+            {
+                $insert =  $this->db->insert('cbt_students', $select->row_array() + $data); 
+                
+                }
+            else{
+                return false;
+            }  
+        }   
+            // return $this->db->insert('cbt_students', $data);      
+        // }  
 
         //insert section
         public function insert_sections(){
@@ -273,7 +284,7 @@ class Posts_model extends CI_Model{
 
         public function get_students_list(){
             
-            $query = $this->db->query("SELECT LRN, first_name, middle_name, last_name, school_name, gender,  birth_date
+            $query = $this->db->query("SELECT LRN, first_name, middle_name, last_name, school_code, gender,  birth_date
            FROM cbt_students GROUP BY LRN;");
             // $dateofBirth = 'birth_date';
             // $today = date("Y-d-m");

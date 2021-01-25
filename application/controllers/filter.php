@@ -32,7 +32,7 @@ class Filter extends CI_Controller {
   
       $no=1;foreach($data as $row): ?>
             <tr>
-            <td><?php echo $row->school_id ?></td>
+            <!-- <td><?php echo $row->school_id ?></td> -->
             <td scope="row" style="font-weight:bold"><?php echo $row->school_code ?></th>
             <td><?php echo $row->grade ?></td>
             <td><?php echo $row->section_name ?></td>

@@ -31,5 +31,16 @@ class Excel_import_model extends CI_Model
     //     );
     // $this->db->insert_batch('cbt_add_section', $data);
  }
+
+ function update($data)
+ {
+  // $this->db->set($data);
+  // $this->db->where('LRN', 1234567891);
+  $this->db->update_batch('cbt_students', $data, 'LRN');
+  // $this->db->where('id', $id);
+  // $this->db->update('mytable', $data);
+  // $this->db->update('cbt_students', $data);
+
+ }
 }
 

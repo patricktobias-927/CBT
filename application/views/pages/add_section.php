@@ -11,24 +11,42 @@
 
 <div class="row justify-content-end">
     <div class="col-lg-6">
-    <form style=""name="bulk_action_form3" action="<?=base_url().'add_section'?>" method="POST"/>
+    <form style=""name="bulk_action_form3" action="<?=base_url().'add_section'?>" method="post">
         <label for="title" style=" float:left;" >Select School: &nbsp; &nbsp;</label>
                 <select name="schools" id="schools" class="form-control float-left schools"  style="width: 225px;" onchange="singleSelectChangeValue()">
                 <!-- <select name="schools" id="schools" class="form-control float-left"  style="width: 225px;"> -->
-                <option value="0"></option>
+                <option value=""></option>
                     <?php foreach($records as $row){?>
                     <option value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
                     <?php } ?>
                 </select>    
         </div> 
         <div class="col-lg-6">
-             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+     <div class="row">
+     <div class="col-8">
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
              <button type="submit" class="btn btn-success" style="background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-plus"></i> Add Another Section</button>          
-        
+             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+       
+
             <!-- <label for="search_text" style=" float:left; margin-top:5px;" >Search School: </label>     -->
             <input type="hidden" name="search_text" id="search_text" placeholder="Search" class="form-control" style="width: 180px; " />    
+            </div>
+            <div class="col-4">       
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-print"></i> Export Data
+                </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Print All</a>
+                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Print Per School</button>
+                    <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section_perschool/action">Print Per School</a> -->
+                             </div>
+                    </div>
+             </div>
         </div>
-    </div> 
+    </div>
+</div> 
                 <br>
     <div class="row" style="margin-top: 5px;">
         <div class="col-md-5">
@@ -98,7 +116,7 @@
                 <thead>
                     <tr>
                     <!-- <th scope="col">School ID</th> -->
-                    <th scope="col">#</th>
+                    <!-- <th scope="col">#</th> -->
                     <th scope="col">School Code</th>
                     <th scope="col">Grade</th>
                     <th scope="col">Section</th>
@@ -124,7 +142,35 @@
         </div>
      </div>
 
-
+<!-- MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select School</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form method="post" action="<?php echo base_url(); ?>Export_add_section_perschool/action">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                <select id="select_sectionmodal" name="select_sectionmodal" class="selectpicker" data-live-search="true" onchange="singleSelectChangeofValue()">
+                <option value=""></option>
+                <?php foreach($records as $row){?>
+                <option value="<?= $row['school_id'];?>"><?= $row['school_name'];?></option>
+                <?php } ?>
+                </select>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Export</button>
+            </form>         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Export</button> -->
+      </div>
+    </div>
+  </div>
      
      <script>
 
@@ -154,6 +200,8 @@ function Filter() {
         }
     });
 }
+
+
 
 </script>
  <script>

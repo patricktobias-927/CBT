@@ -33,7 +33,7 @@ echo " !"; ?>
       <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"> -->
       <?= validation_errors();?>
 
-             <input type="text" id="username" class="fadeIn second" name="username" value="<?= set_value('username'); ?>" class="form-control"
+             <input type="phone" id="username" class="fadeIn second" name="username" value="<?= set_value('username'); ?>" class="form-control"
              autocomplete="on" placeholder="username">
              <input type="password" style=""  name="password" placeholder="password" class="fadeIn third">
       <!-- <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> -->

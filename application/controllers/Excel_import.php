@@ -22,8 +22,8 @@ class Excel_import extends CI_Controller
   <h3 align="center">Total Data - '.$data->num_rows().'</h3>
   <table class="table table-striped table-bordered">
    <tr>
-    <th>student_id</th>
-    <th>firstname</th>
+    <th>LRN</th>
+    <th>Full Name</th>
     <th>middle_name</th>
     <th>last_name</th>
     <th>birthdate</th>
@@ -33,7 +33,7 @@ class Excel_import extends CI_Controller
   {
    $output .= '
    <tr>
-    <td>'.$row->student_id.'</td>
+    <td>'.$row->student_id.' - '.$row->middle_name.'</td>
     <td>'.$row->first_name.'</td>
     <td>'.$row->middle_name.'</td>
     <td>'.$row->last_name.'</td>
@@ -58,29 +58,35 @@ class Excel_import extends CI_Controller
     for($row=2; $row<=$highestRow; $row++)
     {
      $LRN = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-     $first_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-     $middle_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-     $last_name = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-     $birth_date = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+     $phoenix_student_code = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+     $first_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+     $middle_name = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+     $last_name = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+     $birth_date = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
      $BirthdayR = date('Y-m-d', strtotime($birth_date));
-     $gender = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
-     $Grade_level = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
-     $School_name = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
-     $Respondent_number1 = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
-     $level1 = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
-     $section1 = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
-     $batch1 = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
-     $testing_date1 = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+     $gender = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+     $Grade_level = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+     $Section_name = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+     $Section_code = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+     $School_code = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+     $Respondent_number1 = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+     $level1 = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+     $section1 = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+     $batch1 = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+     $testing_date1 = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
      $testing_date1R = date('Y-m-d', strtotime($testing_date1));
      $data[] = array(
       'LRN'   => $LRN,
+      'phoenix_student_code' => $phoenix_student_code,
       'first_name'    => $first_name,
       'middle_name'   => $middle_name,
       'last_name'   => $last_name,
       'birth_date'    => $BirthdayR,
       'gender'  => $gender,
       'grade_level'   => $Grade_level,
-      'school_name'   => $School_name,
+      'section_name'   => $Section_name,
+      'section_code'   => $Section_code,
+      'school_code'   => $School_code,
       'respondent_number1'    => $Respondent_number1,
       'grade_level1'   => $level1,
       'section1'   => $section1,
@@ -90,16 +96,17 @@ class Excel_import extends CI_Controller
     }
    }  
    
-//    $result = $this->db->query("SELECT LRN FROM cbt_students WHERE LRN = '" . $LRN . "' ");
-//    return $result->result_array();
-//    return $totalrows->row_array();
-   
-//    if ($totalrows > 0) {
+
+// //    return $result->result_array();
+
+
+
+
 //     $pass_row = mysqli_fetch_assoc($result);
 //     $userID = $pass_row['LRN'];
 
-    // $this->db->where('LRN', $LRN);
-    // return $this->db->update('cbt_students', $data); 
+//     $this->db->where('LRN', $LRN);
+//     return $this->db->update('cbt_students', $data); 
    
 //    $query= $this->db->query("UPDATE cbt_students
 //    SET
@@ -108,10 +115,24 @@ class Excel_import extends CI_Controller
 //    WHERE LRN = '" . $userID . "'");   
 
 //             }
-   $this->excel_import_model->insert($data);
-   echo 'Data Imported successfully';
   } 
+
+  $result = $this->db->query("SELECT * FROM cbt_students WHERE LRN = '" . $LRN . "' ");
+   $totalrows = $result->num_rows();
+      if ($totalrows > 0) {
+         $this->excel_import_model->update($data);
+         echo "Data Updated Successfully!";
+      //   $this->excel_import_model->update($data);
+ } else { $this->excel_import_model->insert($data);
+   echo "Data Imported Successfully!";
+
  }
+
+
+ }  
+ 
+
+ 
 }
 
 ?>
