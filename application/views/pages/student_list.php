@@ -142,7 +142,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
                     <a class="dropdown-item" href="<?php echo base_url(); ?>Excel_export_students_all/action">Print Details</a>
-                    <a class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate Respondent Template</a>
+                    <a class="dropdown-item" href="<?php echo base_url(); ?>ExcelExportRespondent/action">Respondent Template</a>
 
                     </div>               
                 <!-- </div> -->
@@ -189,7 +189,7 @@
                     <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Print Details</a>
                     <a class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate Respondent Template</a> -->
                     <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button>
-                    <button class="dropdown-item" type="submit" name="export"  value="">Generate Respondent Template</button>
+                    <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button>
 
                     </div>               
                 </div>
@@ -235,7 +235,7 @@
                     <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
                     <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Export_lrn/action">Print Details</a> -->
                     <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button>
-                    <button class="dropdown-item" type="submit" name="export"  value="">Generate Respondent Template</button>
+                    <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button>
                  
                     </div>               
                 </div>
@@ -282,7 +282,7 @@
                
                     <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
                     <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button>
-                    <button class="dropdown-item" type="submit" name="export"  value="">Generate Respondent Template</button>
+                    <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button>
 
                     </div>               
                 </div>

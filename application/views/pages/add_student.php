@@ -93,8 +93,9 @@
                 <div class="col-md-2 col-sm-6"><label for="">School: </label></div> 
                 <div class="col-md-9 col-sm-6">  <select name="school_name" id="school_name"class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px;" onchange="singleSelectChangeValue()">
                     <option value=""></option>
-                    <?php foreach($schools as $row){?>
-                    <option value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
+                    <?php foreach($schools as $row){?> 
+                    <!-- ICHANGEDTOSTUDENTID -->
+                    <option value="<?= $row['school_code'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
                     <?php } ?>
                 </select></div> 
                

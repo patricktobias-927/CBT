@@ -240,11 +240,10 @@ class Posts_model extends CI_Model{
                 'assessment_1' => $this->input->post('hidden_framework')
 
             );
-            $select = $this->db->select('section_name, section_code')->where('section_id', $section_id)->get('cbt_add_section');
+            $select = $this->db->select('section_id, section_name, section_code')->where('section_id', $section_id)->get('cbt_add_section');
             if($select->num_rows())
             {
                 $insert =  $this->db->insert('cbt_students', $select->row_array() + $data); 
-                
                 }
             else{
                 return false;
