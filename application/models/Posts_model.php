@@ -95,6 +95,11 @@ class Posts_model extends CI_Model{
             // $this->db->insert('cbt_add_sections', $query->row_array());
         }
 
+        public function get_masterlist(){
+            $query = $this->db->get('cbt_masterlist_info');
+            return $query->result_array();
+        }
+
     
         // public function getRecords(){
         //     $query = $this->db->get('cbt_add_section');

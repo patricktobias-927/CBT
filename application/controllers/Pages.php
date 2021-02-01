@@ -713,6 +713,41 @@ public function add_section(){
             }
         } 
 
+
+        
+        public function preview_and_download(){
+        
+            // $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+            // // $this->form_validation->set_rules('schoolcode', 'School name', 'required'); 
+            // $this->form_validation->set_rules('school_year', 'School year', 'required'); 
+            // // $this->form_validation->set_rules('testing_date', 'Testing date', 'required'); 
+            // $this->form_validation->set_rules('no_of_takers', 'No of takers', 'required'); 
+        
+            if($this->form_validation->run() == FALSE){
+        
+            $page = "preview_and_download";
+        
+            if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+                show_404();
+            }   
+            
+            $data['sections'] = $this->Posts_model->get_sections();
+            $data['masterlist'] = $this->Posts_model->get_masterlist();
+            $data['records'] = $this->Posts_model->get_LRN();
+            $data['schools'] = $this->Posts_model-> get_records();
+
+            $data['title'] = "Preview And Download";
+            $this->load->view('templates/header');
+            $this->load->view('pages/'.$page, $data);
+            $this->load->view('templates/footer');
+            }else{
+        
+                // $this->session->set_flashdata('post_added_schedule', 'New Schedule was Added!');
+                // redirect(base_url().'school_and_section_list');
+        
+            }
+        } 
+
         public function bulk_upload_of_students(){
         
             // $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');

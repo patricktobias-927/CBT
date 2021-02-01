@@ -37,10 +37,10 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <ul class="navbar-nav px-4">
+  <ul class="navbar-nav px-3">
   <?php if($this->session->logged_in){?>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i>Log Out</a>
+            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">
@@ -105,7 +105,7 @@
             <a class="nav-link" href="create_masterlist";><i class="fas fa-book"></i> Create Masterlist</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#";><i class="fas fa-file-download"></i> Preview and Download</a>
+            <a class="nav-link" href="preview_and_download";><i class="fas fa-file-download"></i> Preview and Download</a>
           </li>
           <?php }?>
          <br>
