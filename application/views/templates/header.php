@@ -102,7 +102,7 @@
             <a class="nav-link" href="add_custom_assessment";><i class="far fa-clipboard"></i> Custom Assessment Type</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#";><i class="fas fa-book"></i> Create Masterlist</a>
+            <a class="nav-link" href="create_masterlist";><i class="fas fa-book"></i> Create Masterlist</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#";><i class="fas fa-file-download"></i> Preview and Download</a>

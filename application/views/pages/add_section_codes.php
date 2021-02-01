@@ -57,7 +57,7 @@
                     
                             <?php foreach($records as $row){?>
                                 <tr>
-                                <td><input type="checkbox" name="checked_id[]" class="checkbox" value="<?= $row['section_id'];?>"></td>
+                                <td><input type="checkbox" name="checked_id[]" class="checkbox" value="<?= $row['section_code_id'];?>"></td>
                                 <td><?= $row['section_code'];?></td>
                                 </tr>
                                 <?php } ?> 

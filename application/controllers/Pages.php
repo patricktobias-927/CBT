@@ -101,7 +101,8 @@ class Pages extends CI_Controller{
     public function add(){
         
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-        $this->form_validation->set_rules('schoolname', 'School name', 'required'); 
+        $this->load->helper('security');
+        $this->form_validation->set_rules('schoolname', 'School name', 'trim|required|xss_clean|is_unique[cbt_add_school.school_name]'); 
         $this->form_validation->set_rules('schoolcode', 'School code', 'required'); 
 
         if($this->form_validation->run() == FALSE){
@@ -134,7 +135,8 @@ class Pages extends CI_Controller{
    public function add_section_codes(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('section_code', 'Section code', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('section_code', 'Section code', 'trim|required|xss_clean|is_unique[cbt_section_codes.section_code]'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -167,7 +169,8 @@ class Pages extends CI_Controller{
 public function add_batch(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('batch', 'Batch', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('batch', 'Batch', 'trim|required|xss_clean|is_unique[cbt_add_batch.batch_name]'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -199,7 +202,8 @@ public function add_batch(){
 public function add_student(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('LRN', 'LRN', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('LRN', 'LRN', 'trim|required|xss_clean|is_unique[cbt_students.LRN]'); 
     $this->form_validation->set_rules('section', 'Section', 'required'); 
 
     if($this->form_validation->run() == FALSE){
@@ -234,10 +238,50 @@ public function add_student(){
 } 
 
 
+public function create_masterlist(){
+        
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
+    $this->load->helper('security');
+    // $this->form_validation->set_rules('cbt_school_name', 'School', 'trim|required|xss_clean|is_unique[cbt_students.LRN]'); 
+    $this->form_validation->set_rules('cbt_school_name', 'School', 'required'); 
+
+    if($this->form_validation->run() == FALSE){
+
+    $page = "create_masterlist";
+
+    if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
+        show_404();
+    }   
+    $data['schools'] = $this->Posts_model->get_records();
+    $data['grade_records'] = $this->Posts_model->get_grade_level();
+    // $data['sections'] = $this->Posts_model->get_sections();
+    $data['batch_records'] = $this->Posts_model->get_batch();
+    $data['assessment'] = $this->Posts_model->get_custom_assessment();
+    $data['students_records'] = $this->Posts_model->get_LRN();
+    $data['sections'] = $this->Posts_model->get_sections();
+    // $data['school_record'] = $this->Posts_model->get_records_single();
+    // $data['school_code'] =  $data['school_record']['school_code'];
+    // $data['school_name'] =  $data['school_record']['school_name'];    
+    $data['title'] = "Create Masterlist";
+
+    $this->load->view('templates/header');
+    $this->load->view('pages/'.$page, $data);
+    $this->load->view('templates/footer');
+    }else{
+
+        $this->Posts_model->insert_masterlist();
+        $this->session->set_flashdata('masterlist_added', 'New Masterlist was added');
+        redirect(base_url().'create_masterlist');
+
+    }
+} 
+
+
 public function add_subject(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('subject', 'Subject', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('subject', 'Subject', 'trim|required|xss_clean|is_unique[cbt_add_subject.subject_name]'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -267,7 +311,8 @@ public function add_subject(){
 public function add_grade_level(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('grade_level', 'Grade Level', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('grade_level', 'Grade Level', 'trim|required|xss_clean|is_unique[cbt_add_grade_level.grade_level]'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -297,7 +342,8 @@ public function add_grade_level(){
 public function add_custom_assessment(){
         
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
-    $this->form_validation->set_rules('assessment_type', 'Assessment Type', 'required'); 
+    $this->load->helper('security');
+    $this->form_validation->set_rules('assessment_type', 'Assessment Type', 'trim|required|xss_clean|is_unique[cbt_add_custom_assessment.assessment_type]'); 
 
     if($this->form_validation->run() == FALSE){
 

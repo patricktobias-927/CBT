@@ -32,7 +32,7 @@
 <div class="col-7">
     <div class="row float-right">
         <!-- <div class="col-6"> -->
-        <a href="#" class="btn btn-dark" style="margin-right: 5px;" ><i class="fas fa-folder-plus"></i> Generate CBT Credentials</a>
+        <a href="create_masterlist" class="btn btn-dark" style="margin-right: 5px;" ><i class="fas fa-folder-plus"></i> Generate CBT Credentials</a>
             <!-- <a href="add_student" class="btn btn-success" style="background-color:#FF8C00; border-color:#FF8C00;" ><i class="fas fa-user-plus"></i> Add Student</a>
             <a href="bulk_upload_of_students" class="btn btn-success" style="background-color:#138496; border-color:#138496; "><i class="fas fa-file-import"></i> Bulk Upload</a> -->
         <!-- </div>      -->
@@ -103,7 +103,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">School <Code></Code></th>
                 <th scope="col">Gender</th>
-                <th scope="col">Age</th>
+                <th scope="col">Birthday</th>
                 </tr>
             </thead>
             <tbody>
@@ -130,10 +130,10 @@
      
 <div class="row">
 
-        <div class="col-2">
+        <div class="col-3">
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" style="margin-right: 5px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-print"></i> Print Details
+                <button class="btn dropdown-toggle exportStudentList" style="margin-right: 5px; float:right;  background-color: white; border-color: gray;" name="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-print"></i> Export Student Details
                         </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a  type="button" class="dropdown-item" href="<?php echo base_url(); ?>Excel_export_students_all/action">Export All</a>
@@ -145,10 +145,10 @@
             </div>
           </div>
 
-          <div class="col-6">
-            <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" style="margin-left: -25px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-print"></i> Respondent Template
+          <div class="col-3">
+            <div class="dropdown div">
+                <button class="btn dropdown-toggle exportRespondentTempalate" style="margin-left: -25px; background-color: white; border-color: gray;" type="button" name="exportRespondentTempalate" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-print"></i> Export Respondent Template
                         </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <!-- <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_All">Export All</a> -->

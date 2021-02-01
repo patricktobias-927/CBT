@@ -249,6 +249,35 @@ class Posts_model extends CI_Model{
                 return false;
             }  
         }   
+
+
+        public function insert_masterlist(){
+
+            $school_id = $this->input->post('cbt_school_name');
+            $section_id = $this->input->post('cbt_section');
+
+          $data = array (
+                'school_acronym' => $this->input->post('school_acronym'),
+                'school_year' => $this->input->post('cbt_school_year'),
+                'grade_level' => $this->input->post('cbt_grade_level'),
+                'assessment_id' => $this->input->post('cbt_hidden_framework'),
+                'batch' => $this->input->post('cbt_batch'),
+                'extra_accounts' => $this->input->post('cbt_select_section')
+            );
+
+            $select1 = $this->db->select('school_name, school_code')->where('school_id', $school_id)->get('cbt_add_school');
+            $select2 = $this->db->select('section_name, section_code')->where('section_id', $section_id)->get('cbt_add_section');
+            if($select2->num_rows())
+                {
+                    $insert =  $this->db->insert('cbt_masterlist_info', $select1->row_array() + $select2->row_array() + $data); 
+                   
+                }
+            else{
+                return false;
+            }  
+        }   
+
+
             // return $this->db->insert('cbt_students', $data);      
         // }  
 

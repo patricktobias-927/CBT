@@ -19,29 +19,37 @@ class Excel_import extends CI_Controller
   $data = $this->excel_import_model->select();
   $output = '
   <br>
-  <h3 align="center">Total Data - '.$data->num_rows().'</h3>
-  <table class="table table-striped table-bordered">
-   <tr>
-    <th>LRN</th>
-    <th>Full Name</th>
-    <th>middle_name</th>
-    <th>last_name</th>
-    <th>birthdate</th>
-   </tr>
+  <div class="card" style="float:left; height: 70px;">
+  <div class="card-body" style="background-color: #20B2AA	; color: white;">
+  <h3 align="center">Total of Students: `'.$data->num_rows().'`</h3> 
+  </div>
+</div>
+  
+
   ';
-  foreach($data->result() as $row)
-  {
-   $output .= '
-   <tr>
-    <td>'.$row->student_id.' - '.$row->middle_name.'</td>
-    <td>'.$row->first_name.'</td>
-    <td>'.$row->middle_name.'</td>
-    <td>'.$row->last_name.'</td>
-    <td>'.$row->birth_date.'</td>
-   </tr>
-   ';
-  }
-  $output .= '</table>';
+//   foreach($data->result() as $row)
+//   {
+//    $output .= '
+//    <tr>
+//     <td>'.$row->student_id.' - '.$row->middle_name.'</td>
+//     <td>'.$row->first_name.'</td>
+//     <td>'.$row->middle_name.'</td>
+//     <td>'.$row->last_name.'</td>
+//     <td>'.$row->birth_date.'</td>
+//    </tr>
+//    ';
+//   }
+//   $output .= '</table>';
+
+// <table class="table table-striped table-bordered">
+// <tr>
+//  <th>LRN</th>
+//  <th>Full Name</th>
+//  <th>middle_name</th>
+//  <th>last_name</th>
+//  <th>birthdate</th>
+// </tr>
+
   echo $output;
  }
 
