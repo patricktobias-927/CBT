@@ -2,7 +2,7 @@
 <?php
 echo "<h1> Welcome, ";
 echo $this->session->fullname;
-echo " !"; ?>
+echo "!"; ?>
  <?php } else { ?>
  
 
