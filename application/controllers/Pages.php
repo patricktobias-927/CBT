@@ -736,7 +736,7 @@ public function add_section(){
             $data['records'] = $this->Posts_model->get_LRN();
             $data['schools'] = $this->Posts_model-> get_records();
 
-            $data['title'] = "Preview And Download";
+            $data['title'] = "Masterlist Information";
             $this->load->view('templates/header');
             $this->load->view('pages/'.$page, $data);
             $this->load->view('templates/footer');

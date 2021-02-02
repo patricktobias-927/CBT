@@ -103,7 +103,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">School <Code></Code></th>
                 <th scope="col">Gender</th>
-                <th scope="col">Birthday</th>
+                <th scope="col">Age</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@
                 <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td>
                 <td><?= $row['school_code'];?></td>
                 <td><?= $row['gender'];?></td>
-                <td><?= $row['birth_date'];?></td>
+                <td><?=  date_diff(date_create( $row['birth_date']), date_create('now'))->y;?></td>
                 </tr>
             
                 <?php } ?>

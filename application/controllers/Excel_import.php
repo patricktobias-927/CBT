@@ -21,7 +21,7 @@ class Excel_import extends CI_Controller
   <br>
   <div class="card" style="float:left; height: 70px;">
   <div class="card-body" style="background-color: #20B2AA	; color: white;">
-  <h3 align="center">Total of Students: `'.$data->num_rows().'`</h3> 
+  <h3 align="center">Total Students: '.$data->num_rows().'</h3> 
   </div>
 </div>
   

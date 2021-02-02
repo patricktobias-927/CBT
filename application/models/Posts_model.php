@@ -256,7 +256,7 @@ class Posts_model extends CI_Model{
         }   
 
 
-        public function insert_masterlist(){
+public function insert_masterlist(){
 
             $school_id = $this->input->post('cbt_school_name');
             $section_id = $this->input->post('cbt_section');
@@ -319,6 +319,7 @@ class Posts_model extends CI_Model{
             
             $query = $this->db->query("SELECT LRN, first_name, middle_name, last_name, school_code, gender,  birth_date
            FROM cbt_students GROUP BY LRN;");
+
             // $dateofBirth = 'birth_date';
             // $today = date("Y-d-m");
             // $diff = date_diff(date_create($dateofBirth), date_create($today));
