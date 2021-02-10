@@ -282,7 +282,7 @@ public function insert_masterlist(){
             }  
         }   
 
-
+ 
             // return $this->db->insert('cbt_students', $data);      
         // }  
 
