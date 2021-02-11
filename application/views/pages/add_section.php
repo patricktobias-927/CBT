@@ -9,6 +9,8 @@
 <?= '<p class="alert alert-success">'.$this->session->flashdata('post_added_section').'</p>' ?>
 <?php endif;?>
 
+
+
 <div class="row justify-content-end">
     <div class="col-lg-6">
     <form style=""name="bulk_action_form3" action="<?=base_url().'add_section'?>" method="post">
@@ -17,7 +19,7 @@
                 <!-- <select name="schools" id="schools" class="form-control float-left"  style="width: 225px;"> -->
                 <option value=""></option>
                     <?php foreach($records as $row){?>
-                    <option value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
+                    <option  value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?> </option>
                     <?php } ?>
                 </select>    
         </div> 

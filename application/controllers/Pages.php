@@ -225,6 +225,7 @@ public function add_student(){
     // $data['school_name'] =  $data['school_record']['school_name'];    
     $data['title'] = "Add Student";
 
+
     $this->load->view('templates/header');
     $this->load->view('pages/'.$page, $data);
     $this->load->view('templates/footer');
@@ -781,5 +782,14 @@ public function add_section(){
             }
         } 
         
+
+        //DEPENDENT_DROPDOWN
+        function fetch_section()
+        {
+         if($this->input->post('school_name'))
+         {
+          echo $this->Posts_model->fetch_section($this->input->post('school_name'));
+         }
+        }
 
 }

@@ -127,10 +127,10 @@
                <div class="col-md-2 col-sm-6" style=""><label for="">Section :</label></div> 
                <div class="col-md-8 col-sm-6 d-md-inline">
                <select name="section" id="section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
-                    <option value=""></option>
-                    <?php foreach($sections as $row){?>
+                    <!-- <option value=""></option> -->
+                    <!-- <?php foreach($sections as $row){?>
                     <option value="<?= $row['section_id'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select>  
                 
                 </div> 
@@ -950,7 +950,6 @@ function topFunction() {
 
 
 
-
 <!-- <div class="row">
     <div class="col-lg-12"> -->
 
@@ -1003,3 +1002,33 @@ function topFunction() {
                 $('#batch_table').DataTable();  
             });  
             </script>  
+
+            
+<script>
+
+
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section').html(data);
+    }
+   });
+  }
+  else
+  {
+   $('#section').html('<option value="">Select State</option>');
+  }
+
+ });
+});
+ 
+</script>

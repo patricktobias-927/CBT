@@ -436,6 +436,22 @@ public function insert_masterlist(){
         }
        
       }
+
+
+      //DEPENDENT DROPDOWN
+      function fetch_section($school_id)
+        {
+        $this->db->where('school_code', $school_id);
+        $this->db->order_by('section_id', 'ASC');
+        $query = $this->db->get('cbt_add_section');
+        $output = '<option value="">Select Section</option>';
+        foreach($query->result() as $row)
+        {
+        $output .= '<option value="'.$row->section_id.'">'.$row->section_name.'</option>';
+        }
+        return $output;
+        }
+
     }
 
 
