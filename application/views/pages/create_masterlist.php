@@ -150,8 +150,7 @@
                <button type="submit" id="add" name="add" class="btn btn-warning" style="float:right;"><i class="fas fa-poll-h"></i> Create Masterlist</button>
               <br>
               <br>
-                <a type="button" class="btn btn-success" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMasterlist/action'?>">Download Excel File</a>
-                <a type="button" class="btn btn-success" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMcsv/action'?>">Download CSV File</a>
+         
                 </div> 
             </div>
         </div>
@@ -161,19 +160,27 @@
         </div>       
     </div>
 
+
        <br>
        <br>     
+       <br>   
+       <br>
        <br>   
        <br>
  
 
     <div class="container-fluid px-0">
     <div class="row">
-           <br>
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-start" style="">
-     
+       
+        <div class="col-md-5 col-sm-6">
+            <!-- <div class="row justify-content-start" style=""> -->
+            <?php if($last_id > 0){ ?>
+                <a type="button" class="btn btn-info" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMasterlist/action'?>">Download Excel File</a>
+ 
+            <?php } ?> 
             </div>
+            <div class="col-md-7 col-sm-6">
+            <a type="button" class="btn btn-info" style="float:left; margin-top: 10px;" href="<?=base_url().'ExcelExportMcsv/action'?>">Download CSV File</a>
         </div>
         
     
