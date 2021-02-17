@@ -43,11 +43,11 @@
                <div class="col-md-2 col-sm-6"><label for="">School Year : </label></div> 
                <div class="col-md-9 col-sm-6">  <select id="cbt_school_year" name="cbt_school_year" class="form-control"  style="width: 180px; margin-left: 10px;">
                 <option value=""></option>
-                <option value="2021-2022">2021-2022</option>
-                <option value="2022-2023">2022-2023</option>
-                <option value="2023-2024">2023-2024</option>
-                <option value="2024-2025">2024-2025</option>
-                <option value="2025-2026">2025-2026</option>
+                <option value="2021-2022">2021 - 2022</option>
+                <option value="2022-2023">2022 - 2023</option>
+                <option value="2023-2024">2023 - 2024</option>
+                <option value="2024-2025">2024 - 2025</option>
+                <option value="2025-2026">2025 - 2026</option>
 
                 </select></div> 
             </div>
@@ -116,7 +116,14 @@
 
         </div>       
     </div>     
-        
+
+                <select name="cbt_id" id="cbt_id" class="form-control"  style="display: none;">
+                    <option value=""></option>
+                    <?php foreach($last_id as $row){?>
+                    <option value="<?= $row['masterlist_id'];?>" selected><?= $row['masterlist_id'];?></option>
+                    <?php } ?>
+                </select>
+
 <br>
 <br>
 <br>
@@ -141,7 +148,10 @@
                <div class="col-md-2 col-sm-6" style=""></div> 
                <div class="col-md-8 col-sm-6 d-md-inline">
                <button type="submit" id="add" name="add" class="btn btn-warning" style="float:right;"><i class="fas fa-poll-h"></i> Create Masterlist</button>
-                
+              <br>
+              <br>
+                <a type="button" class="btn btn-success" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMasterlist/action'?>">Download Excel File</a>
+                <a type="button" class="btn btn-success" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMcsv/action'?>">Download CSV File</a>
                 </div> 
             </div>
         </div>

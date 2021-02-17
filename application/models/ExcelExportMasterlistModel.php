@@ -3,7 +3,7 @@ class ExcelExportMasterlistModel extends CI_Model
 {
  function fetch_data()
  {
-    $sid = $this->input->post('cbt_masterlist_framework');
+    $sid = $this->input->post('cbt_id');
 //   $this->db->order_by("student_id", "DESC");
 //   $query = $this->db->get("cbt_students");
 //   return $query->result();

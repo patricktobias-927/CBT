@@ -100,6 +100,20 @@ class Posts_model extends CI_Model{
             return $query->result_array();
         }
 
+        public function get_last(){
+                 
+            $query = $this->db->query("SELECT masterlist_id
+           FROM cbt_masterlist_info ORDER BY masterlist_id DESC LIMIT 1;");
+            return $query->result_array();
+
+          
+        }
+
+
+       // To get last record form the table
+
+
+
     
         // public function getRecords(){
         //     $query = $this->db->get('cbt_add_section');
@@ -256,7 +270,7 @@ class Posts_model extends CI_Model{
         }   
 
 
-public function insert_masterlist(){
+        public function insert_masterlist(){
 
             $school_id = $this->input->post('cbt_school_name');
             $section_id = $this->input->post('cbt_section');
@@ -301,7 +315,7 @@ public function insert_masterlist(){
             if($select->num_rows())
                 {
                     $insert =  $this->db->insert('cbt_add_section', $select->row_array() + $data); 
-                   
+                  
                 }
             else{
                 return false;

@@ -31,7 +31,17 @@
             <input  type="text" name="schoolcode" class="form-control" placeholder="" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;" value="" readonly> --> 
         
             <label for="title"  style="float:left; margin-left:30px; ">School Year:</label>
-            <input type="text" name="school_year" class="form-control" placeholder="ex. 2020-2021" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;"   value="">
+            <select id="school_year" name="school_year" class="form-control"  style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;">
+                <option value=""></option>
+                <option value="2021-2022">2021 - 2022</option>
+                <option value="2022-2023">2022 - 2023</option>
+                <option value="2023-2024">2023 - 2024</option>
+                <option value="2024-2025">2024 - 2025</option>
+                <option value="2025-2026">2025 - 2026</option>
+
+                </select>
+
+            <!-- <input type="text" name="school_year" class="form-control" placeholder="ex. 2020-2021" style="width: 180px;  margin-left:10px; margin-top:-4px; float:left;"   value=""> -->
             <label for="title" style="float:left; margin-left:50px;">Testing Date:</label>
             <input type="text" name="daterange" class="form-control" style="width: 225px; margin-left:10px; margin-top:-4px; float:left;" value="" />
             <br>

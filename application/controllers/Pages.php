@@ -255,11 +255,15 @@ public function create_masterlist(){
     }   
     $data['schools'] = $this->Posts_model->get_records();
     $data['grade_records'] = $this->Posts_model->get_grade_level();
+    $data['inserted_ID'] = 
     // $data['sections'] = $this->Posts_model->get_sections();
     $data['batch_records'] = $this->Posts_model->get_batch();
     $data['assessment'] = $this->Posts_model->get_custom_assessment();
     $data['students_records'] = $this->Posts_model->get_LRN();
     $data['sections'] = $this->Posts_model->get_sections();
+    $data['last_id'] = $this->Posts_model->get_last();
+    
+    $last_row=$this->db->select('id')->order_by('id',"desc")->limit(1)->get('post')->row();
     // $data['school_record'] = $this->Posts_model->get_records_single();
     // $data['school_code'] =  $data['school_record']['school_code'];
     // $data['school_name'] =  $data['school_record']['school_name'];    
@@ -421,6 +425,7 @@ public function add_section(){
     if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
         show_404();
     }   
+    $data['i'] = $this->input->post('schools');
     $data['records'] = $this->Posts_model->get_records();
     $data['grade_records'] = $this->Posts_model->get_grade_level();
     $data['section_codes'] = $this->Posts_model->get_section_codes();

@@ -929,27 +929,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- <div class="row">
     <div class="col-lg-12"> -->
 
@@ -1006,6 +985,29 @@ function topFunction() {
             
 <script>
 
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#section').html('<option value="">Select School</option>');
+  }
+
+ });
+});
 
 $(document).ready(function(){
  $('#school_name').change(function(){
@@ -1019,16 +1021,112 @@ $(document).ready(function(){
     data:{school_name:school_code},
     success:function(data)
     {
-     $('#section').html(data);
+     $('#section_1').html(data); 
     }
    });
   }
   else
   {
-   $('#section').html('<option value="">Select State</option>');
+   $('#section_1').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section_2').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#section_2').html('<option value="">Select School</option>');
   }
 
  });
 });
  
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section_3').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#section_3').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section_4').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#section_4').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_section",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#section_5').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#section_5').html('<option value="">Select School</option>');
+  }
+
+ });
+});
 </script>
+
