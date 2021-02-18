@@ -281,7 +281,7 @@ class Posts_model extends CI_Model{
                 'grade_level' => $this->input->post('cbt_grade_level'),
                 'assessment_id' => $this->input->post('cbt_hidden_framework'),
                 'batch' => $this->input->post('cbt_batch'),
-                'extra_accounts' => $this->input->post('cbt_select_section')
+                'extra_accounts' => $this->input->post('cbt_extra')
             );
 
             $select1 = $this->db->select('school_name, school_code')->where('school_id', $school_id)->get('cbt_add_school');

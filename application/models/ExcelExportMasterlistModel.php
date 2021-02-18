@@ -25,7 +25,7 @@ REVERSE(RIGHT(REVERSE(s.first_name
 
 CONCAT(mi.school_acronym, ' ', RIGHT(s.grade_level, 2), ' ', s.section_name) as group_,
 
- mi.masterlist_id as masterlist, ca.course_code1 as course1, ca.course_code2 as course2, ca.course_code3 as course3, ca.course_code4 as course4, ca.course_code5 as course5, ca.course_code6 as course6 FROM `cbt_students` s LEFT JOIN cbt_masterlist_info mi ON (s.school_code = mi.school_code AND s.grade_level = mi.grade_level AND s.section_code = mi.section_code) LEFT JOIN cbt_add_custom_assessment ca ON (mi.assessment_id = ca.assessment_id) LEFT JOIN cbt_add_section ad ON (s.section_id = ad.section_id) WHERE mi.masterlist_id = '".$sid."' ORDER BY student_id;");
+ mi.masterlist_id as masterlist, mi.extra_accounts as extra_accounts, ca.course_code1 as course1, ca.course_code2 as course2, ca.course_code3 as course3, ca.course_code4 as course4, ca.course_code5 as course5, ca.course_code6 as course6 FROM `cbt_students` s LEFT JOIN cbt_masterlist_info mi ON (s.school_code = mi.school_code AND s.grade_level = mi.grade_level AND s.section_code = mi.section_code) LEFT JOIN cbt_add_custom_assessment ca ON (mi.assessment_id = ca.assessment_id) LEFT JOIN cbt_add_section ad ON (s.section_id = ad.section_id) WHERE mi.masterlist_id = '".$sid."' ORDER BY student_id;");
 
 
 

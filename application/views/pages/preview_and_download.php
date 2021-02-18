@@ -73,7 +73,7 @@
 <br> 
 <br> 
      
-<div class="row">
+<!-- <div class="row">
 
         <div class="col-6">
             <div class="dropdown">
@@ -82,7 +82,7 @@
                 <button type="submit" class="btn" style="margin-right: 5px; float:right;  background-color: white; border-color: gray;" name="" type="button" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-print"></i> Download Excel File
                 </button>
-                       
+                        -->
              
                             <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 
@@ -92,7 +92,7 @@
                                 <a type="button" class="dropdown-item" data-toggle="modal" data-target=".Modal_Schools">Export Per School</a>
                                 <a type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Sections">Export Per Section</a> -->
                             <!-- </div> -->
-              </form>
+              <!-- </form>
 
               
             </div>
@@ -118,7 +118,7 @@
 
     <br>
 
-</div>
+</div> -->
 
 
 

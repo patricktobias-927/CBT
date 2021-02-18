@@ -117,12 +117,6 @@
         </div>       
     </div>     
 
-                <select name="cbt_id" id="cbt_id" class="form-control"  style="display: none;">
-                    <option value=""></option>
-                    <?php foreach($last_id as $row){?>
-                    <option value="<?= $row['masterlist_id'];?>" selected><?= $row['masterlist_id'];?></option>
-                    <?php } ?>
-                </select>
 
 <br>
 <br>
@@ -132,13 +126,20 @@
     <div class="row">
         <div class="col-md-6 col-sm-6">
             <div class="row justify-content-start" style="">
-               <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Select Section :</label></div> 
+               <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Insert Extra Accounts:</label></div> 
                <div class="col-md-8 col-sm-6 d-md-inline">
-               <select name="cbt_select_section" id="cbt_select_section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
-                    <option value=""></option>
-                    <?php foreach($grade_records as $row){?>
-                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
-                    <?php } ?>
+               <select name="cbt_extra" id="cbt_extra" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                    <option value="0"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select>  
                 </div> 
             </div>
@@ -169,24 +170,16 @@
        <br>
  
 
-    <div class="container-fluid px-0">
-    <div class="row">
        
-        <div class="col-md-5 col-sm-6">
-            <!-- <div class="row justify-content-start" style=""> -->
+<!--       
             <?php if($last_id > 0){ ?>
                 <a type="button" class="btn btn-info" style="float:right; margin-top: 10px;" href="<?=base_url().'ExcelExportMasterlist/action'?>">Download Excel File</a>
  
             <?php } ?> 
-            </div>
-            <div class="col-md-7 col-sm-6">
+            
+           
             <a type="button" class="btn btn-info" style="float:left; margin-top: 10px;" href="<?=base_url().'ExcelExportMcsv/action'?>">Download CSV File</a>
-        </div>
-        
-    
- 
-        </div>       
-    </div>    
+     -->
 
     <div class="container">
     <div class="row">
@@ -196,8 +189,40 @@
     </div>
 </div>
 
-        </form>
+    </form>
 
+    <div class="container-fluid px-0">
+    <div class="row">
+    <div class="col-md-5 col-sm-6">
+        <form method="post" action="<?=base_url().'ExcelExportMasterlist/action'?>">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+            <select name="cbt_id" id="cbt_id" class="form-control"  style="display: none;">
+                    <option value="8">8</option>
+                    <?php foreach($last_id as $row){?>
+                    <option value="<?= $row['masterlist_id'];?>" selected><?= $row['masterlist_id'];?></option>
+                    <?php } ?>
+                </select>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                <button type="submit" name="export" class="btn btn-info float-right" value=""><i class="fas fa-file-download"></i> Download Excel File</button>
+            </form>    
+            </div>
+            <div class="col-md-7 col-sm-6">
+      <form method="post" action="<?=base_url().'ExcelExportMcsv/action'?>">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+            <select name="cbt_id" id="cbt_id" class="form-control"  style="display: none;">
+                    <option value="8">8</option>
+                    <?php foreach($last_id as $row){?>
+                    <option value="<?= $row['masterlist_id'];?>" selected><?= $row['masterlist_id'];?></option>
+                    <?php } ?>
+                </select>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                <button type="submit" name="export" class="btn btn-info" value=""><i class="fas fa-file-download"></i> Download CSV File</button>
+            </form>                
+            </div>
+        
+                
+        </div>       
+    </div>           
 
 
 <script>
