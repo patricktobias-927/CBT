@@ -204,7 +204,15 @@ public function add_student(){
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
     $this->load->helper('security');
     $this->form_validation->set_rules('LRN', 'LRN', 'trim|required|xss_clean|is_unique[cbt_students.LRN]'); 
+    $this->form_validation->set_rules('first_name', 'First Name', 'required'); 
+    $this->form_validation->set_rules('gender', 'Gender', 'required'); 
+    $this->form_validation->set_rules('middle_name', 'Middle Name', 'required'); 
+    $this->form_validation->set_rules('birthdate', 'Birth Date', 'required'); 
+    $this->form_validation->set_rules('last_name', 'Last Name', 'required'); 
+    $this->form_validation->set_rules('school_name', 'School Name', 'required'); 
+    $this->form_validation->set_rules('grade_level', 'Grade Level', 'required'); 
     $this->form_validation->set_rules('section', 'Section', 'required'); 
+
 
     if($this->form_validation->run() == FALSE){
 
@@ -245,6 +253,12 @@ public function create_masterlist(){
     $this->load->helper('security');
     // $this->form_validation->set_rules('cbt_school_name', 'School', 'trim|required|xss_clean|is_unique[cbt_students.LRN]'); 
     $this->form_validation->set_rules('cbt_school_name', 'School', 'required'); 
+    $this->form_validation->set_rules('school_acronym', 'School Acronym', 'required'); 
+    $this->form_validation->set_rules('cbt_school_year', 'School Year', 'required'); 
+    $this->form_validation->set_rules('cbt_section', 'Section', 'required'); 
+    $this->form_validation->set_rules('cbt_grade_level', 'Grade Level', 'required'); 
+    $this->form_validation->set_rules('cbt_assessment', 'Assessment', 'required'); 
+    $this->form_validation->set_rules('cbt_batch', 'Batch', 'required'); 
 
     if($this->form_validation->run() == FALSE){
 
@@ -414,6 +428,11 @@ public function add_section(){
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
     // $this->form_validation->set_rules('schoolcode', 'School name', 'required'); 
     $this->form_validation->set_rules('schools', 'School', 'required'); 
+    $this->form_validation->set_rules('gradelevel', 'Grade Level', 'required'); 
+    $this->form_validation->set_rules('sectioncode', 'Section Code', 'required'); 
+    $this->form_validation->set_rules('schoolyear', 'School Year', 'required'); 
+    $this->form_validation->set_rules('sectionname', 'Section Name', 'required'); 
+    $this->form_validation->set_rules('batch', 'Batch', 'required'); 
     // $this->form_validation->set_rules('testing_date', 'Testing date', 'required'); 
     // $this->form_validation->set_rules('no_of_takers', 'No of takers', 'required'); 
 

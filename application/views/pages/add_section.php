@@ -74,11 +74,11 @@
     <div class="row" style="margin-top: 10px;">
         <div class="col-5" >  
                 <label for="title" style="float:left;">School Year: &nbsp;</label>
-                    <input type="phone" name="schoolyear" placeholder="ex. 2020-2021" class="form-control" style="width: 225px;" value=""  />          
+                    <input type="phone" name="schoolyear" id="schoolyear" placeholder="ex. 2020-2021" class="form-control" style="width: 225px;" value=""  />          
         </div>     
         <div class="col-6">
                 <label for="" style="float:left; ">Section Name: &nbsp;</label>
-                    <input type="text" name="sectionname" placeholder="Section name" class="form-control" style="width: 225px;" value="" />
+                    <input type="text" name="sectionname" id="sectionname" placeholder="Section name" class="form-control" style="width: 225px;" value="" />
         </div>
     </div>                  
     <div class="row" style="margin-top: 10px;">
