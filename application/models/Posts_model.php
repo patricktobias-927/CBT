@@ -469,6 +469,20 @@ class Posts_model extends CI_Model{
         return $output;
         }
 
+      //GRADE LEVEL DEPENDENT DROPDOWN
+      function fetch_glevel($school_id)
+      {
+      $this->db->where('school_code', $school_id);
+      $this->db->order_by('section_id', 'ASC');
+      $query = $this->db->get('cbt_add_section');
+      $output = '<option value="">Select Level</option>';
+      foreach($query->result() as $row)
+      {
+      $output .= '<option value="'.$row->grade.'">'.$row->grade.'</option>';
+      }
+      return $output;
+      }
+
         
      public function count_students(){
         $query = $this->db->query("SELECT COUNT(DISTINCT(LRN)) as student_id

@@ -114,10 +114,10 @@
                <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Grade level :</label></div> 
                <div class="col-md-8 col-sm-6 d-md-inline">
                <select name="grade_level" id="grade_level" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
-                    <option value=""></option>
-                    <?php foreach($grade_records as $row){?>
+                    <!-- <option value=""></option> -->
+                    <!-- <?php foreach($grade_records as $row){?>
                     <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select>  
                 </div> 
             </div>
@@ -985,6 +985,32 @@ function topFunction() {
             
 <script>
 
+//GRADELEVEL DEPENDENT DROPDOWN
+$(document).ready(function(){
+ $('#school_name').change(function(){
+
+  var school_code = $('#school_name').val();
+  if(school_code != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_glevel",
+    method:"POST",
+    data:{school_name:school_code},
+    success:function(data)
+    {
+     $('#grade_level').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#grade_level').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+//SECTION DEPENDENT DROPDOWN
 $(document).ready(function(){
  $('#school_name').change(function(){
 

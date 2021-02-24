@@ -806,7 +806,6 @@ public function add_section(){
             }
         } 
         
-
         //DEPENDENT_DROPDOWN
         function fetch_section()
         {
@@ -815,5 +814,14 @@ public function add_section(){
           echo $this->Posts_model->fetch_section($this->input->post('school_name'));
          }
         }
+
+         //DEPENDENT_DROPDOWN GLEVEL
+         function fetch_glevel()
+         {
+          if($this->input->post('school_name'))
+          {
+           echo $this->Posts_model->fetch_glevel($this->input->post('school_name'));
+          }
+         }
 
 }
