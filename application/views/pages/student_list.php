@@ -26,11 +26,13 @@
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
            
             </form>   -->
-        
+       
         </div>
+        
         
 <div class="col-7">
     <div class="row float-right">
+    
         <!-- <div class="col-6"> -->
         <a href="create_masterlist" class="btn btn-dark" style="margin-right: 5px;" ><i class="fas fa-folder-plus"></i> Generate CBT Credentials</a>
             <!-- <a href="add_student" class="btn btn-success" style="background-color:#FF8C00; border-color:#FF8C00;" ><i class="fas fa-user-plus"></i> Add Student</a>
@@ -68,9 +70,13 @@
     </div>   
 </div>
     <br>
+    <br>
     <div class="row">
         <div class="col-6">
+        <?php foreach($count as $row){?>
+                     <div style="margin-left: -20px;"><label for="" style="font-size: 20px; color: Black;">Total Students: <?= $row['student_id'];?></label>
 
+<?php } ?></div> 
             <!-- <form method="post" action="<?php echo base_url(); ?>Export_add_section_perschool/action">
                     <label for="">Filter by School: </label>
                         <select id="select_sectionmodal" name="select_sectionmodal" class="selectpicker" data-live-search="true" onchange="singleSelectChangeofValue()">
@@ -89,7 +95,8 @@
 </div>    
 
      <br>
-     
+ 
+
      <button style="float:right; display: none;"></button></div>
 
 <div class="container">

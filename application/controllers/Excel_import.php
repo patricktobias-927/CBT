@@ -17,16 +17,16 @@ class Excel_import extends CI_Controller
  function fetch()
  {
   $data = $this->excel_import_model->select();
-  $output = '
-  <br>
-  <div class="card" style="float:left; height: 70px;">
-  <div class="card-body" style="background-color: #20B2AA	; color: white;">
-  <h3 align="center">Total Students: '.$data->num_rows().'</h3> 
-  </div>
-</div>
+//   $output = '
+//   <br>
+//   <div class="card" style="float:left; height: 70px;">
+//   <div class="card-body" style="background-color: #20B2AA	; color: white;">
+//   <h3 align="center">Total Students: '.$data->num_rows().'</h3> 
+//   </div>
+// </div>
   
 
-  ';
+//   ';
 //   foreach($data->result() as $row)
 //   {
 //    $output .= '
@@ -50,7 +50,7 @@ class Excel_import extends CI_Controller
 //  <th>birthdate</th>
 // </tr>
 
-  echo $output;
+  // echo $output;
  }
 
  function import()

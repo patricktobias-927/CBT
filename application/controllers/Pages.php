@@ -720,7 +720,7 @@ public function add_section(){
             if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
                 show_404();
             }   
-            
+            $data['count'] = $this->Posts_model->count_students();
             $data['sections'] = $this->Posts_model->get_sections();
             $data['students'] = $this->Posts_model->get_students_list();
             $data['records'] = $this->Posts_model->get_LRN();

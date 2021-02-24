@@ -469,6 +469,14 @@ class Posts_model extends CI_Model{
         return $output;
         }
 
+        
+     public function count_students(){
+        $query = $this->db->query("SELECT COUNT(DISTINCT(LRN)) as student_id
+        FROM cbt_students");
+        return $query->result_array();
     }
 
+
+
+    }
 
