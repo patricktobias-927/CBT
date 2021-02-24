@@ -20,7 +20,6 @@
     <script src="js/jquery.datetimepicker.full.min.js"></script>
 
 
-    
  
 <script></script>
 

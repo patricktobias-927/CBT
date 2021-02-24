@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <div class="container fluid ">
 <h1> <?= $title;?> </h1>
 <hr>
@@ -55,7 +56,9 @@
          </div>
        </div>
     </div>
-</div>       
+</div>  
+<?php } else {  redirect('login'); ?>  
+<?php }?>   
 <script>  
             $(document).ready(function(){  
                 $('#batch_table').DataTable();  

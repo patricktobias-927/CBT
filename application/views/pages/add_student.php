@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <!-- <div class="container fluid "> -->
 <form name="multiple_select_form" action="<?=base_url().'add_student'?>" method="post">
 <h1> <?= $title;?> </h1>
@@ -724,6 +725,8 @@
         </button>
 
         </form>
+<?php } else {  redirect('login'); ?>  
+<?php }?>
 
 
 

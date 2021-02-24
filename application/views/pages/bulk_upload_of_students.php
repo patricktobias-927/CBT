@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <div class="form-group">
     <div class="container">
         <div class="row">
@@ -47,6 +48,10 @@
         </div>
     </div>
 </div>
+<?php } else {  redirect('login'); ?>  
+<?php }?>
+
+
 <script>
 $(document).ready(function(){
 

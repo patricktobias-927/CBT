@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <h1> <?= $title;?> </h1>
 <hr>
 <?= validation_errors();?>
@@ -69,6 +70,10 @@
          </div>          
     </div>
 </div>
+
+<?php } else {  redirect('login'); ?>  
+<?php }?>
+
             <script>
                 $(document).ready(function(){  
                 $('#school_list_table').DataTable();  

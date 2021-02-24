@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <!-- <div class="container fluid "> -->
 <form name="multiple_select_form" action="<?=base_url().'create_masterlist'?>" method="post">
 <h1> <?= $title;?> </h1>
@@ -223,6 +224,8 @@
                 
         </div>       
     </div>           
+<?php } else {  redirect('login'); ?>  
+<?php }?>
 
 
 <script>

@@ -1,3 +1,4 @@
+<?php if($this->session->logged_in){?>
 <h1> <?= $title;?> </h1>
 <hr>
 <?= validation_errors();?>
@@ -119,6 +120,8 @@
     <br>
 
 </div> -->
+<?php } else {  redirect('login'); ?>  
+<?php }?>
 
 
 
