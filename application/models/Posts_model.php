@@ -331,8 +331,11 @@ class Posts_model extends CI_Model{
 
         public function get_students_list(){
             
-            $query = $this->db->query("SELECT LRN, first_name, middle_name, last_name, school_code, gender,  birth_date
-           FROM cbt_students GROUP BY LRN;");
+            $query = $this->db->query("SELECT cs.LRN, cs.first_name, cs.middle_name, cs.last_name, cas.school_name, cs.gender,  cs.birth_date
+           FROM cbt_students cs LEFT JOIN cbt_add_school cas ON cs.school_code = cas.school_code  GROUP BY LRN;");
+
+
+
 
             // $dateofBirth = 'birth_date';
             // $today = date("Y-d-m");
