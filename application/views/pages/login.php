@@ -1,5 +1,6 @@
 <?php if($this->session->logged_in){?>
 <?php
+$this->session->set_userdata('is_logged_in', TRUE);
 echo "<h1> Welcome, ";
 echo $this->session->fullname;
 echo "!"; ?>

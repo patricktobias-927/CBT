@@ -30,17 +30,16 @@
   <!-- Fixed navbar -->
 
 
-
 <!-- UNDER CONSTRUCTION -->
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-11 mr-0 px-4" href="<?= base_url();?>">CBT Masterlist Generator</a>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="font-style: italic;">
+  <a class="navbar-brand col-md-3   <?php if($this->session->logged_in){?> col-lg-11  <?php } else { ?>  col-lg-12 <?php } ?> mr-0 px-4" style="font-size: 18px; background: #FFA500;"href="<?= base_url();?>">CBT Masterlist Generator</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <ul class="navbar-nav px-3">
+  <ul class="navbar-nav px-3" >
   <?php if($this->session->logged_in){?>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Log Out</a>
+            <a class="nav-link" style="margin-left: -75px; font-style: normal; font-weight: bold;" href="<?= base_url();?>logout"><i class="fas fa-power-off"></i> Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">
