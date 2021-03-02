@@ -824,4 +824,39 @@ public function add_section(){
           }
          }
 
+         //School Year Create Masterlist Dependent Dropdown
+         function fetch_masterlist_sy()
+         {
+          if($this->input->post('cbt_school_name'))
+          {
+           echo $this->Posts_model->fetch_masterlist_sy($this->input->post('cbt_school_name'));
+          }
+         }
+
+        //School Year Create Masterlist Dependent Dropdown
+        function fetch_masterlist_gl()
+        {
+        if($this->input->post('cbt_school_name'))
+        {
+            echo $this->Posts_model->fetch_masterlist_gl($this->input->post('cbt_school_name'));
+        }
+        }
+
+        function fetch_masterlist_batch()
+        {
+        if($this->input->post('cbt_school_name'))
+        {
+            echo $this->Posts_model->fetch_masterlist_batch($this->input->post('cbt_school_name'));
+        }
+        }
+
+        function fetch_masterlist_section()
+        {
+        if($this->input->post('cbt_school_name'))
+        {
+            echo $this->Posts_model->fetch_masterlist_section($this->input->post('cbt_school_name'));
+        }
+        }
+
+
 }

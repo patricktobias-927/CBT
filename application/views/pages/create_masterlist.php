@@ -43,12 +43,12 @@
             <div class="row justify-content-end" style="">
                <div class="col-md-2 col-sm-6"><label for="">School Year : </label></div> 
                <div class="col-md-9 col-sm-6">  <select id="cbt_school_year" name="cbt_school_year" class="form-control"  style="width: 180px; margin-left: 10px;">
-                <option value=""></option>
-                <option value="2021-2022">2021 - 2022</option>
+                <!-- <option value=""></option> -->
+                <!-- <option value="2021-2022">2021 - 2022</option>
                 <option value="2022-2023">2022 - 2023</option>
                 <option value="2023-2024">2023 - 2024</option>
                 <option value="2024-2025">2024 - 2025</option>
-                <option value="2025-2026">2025 - 2026</option>
+                <option value="2025-2026">2025 - 2026</option> -->
 
                 </select></div> 
             </div>
@@ -242,7 +242,114 @@ function singleSelectChangeValue() {
 </script>
 
 <script>  
-            $(document).ready(function(){  
+           $(document).ready(function(){  
                 $('#batch_table').DataTable();  
             });  
-            </script>  
+
+
+
+//Create Masterlist Shchool Dropdown Filter School year
+$(document).ready(function(){
+ $('#cbt_school_name').change(function(){
+
+  var school_id = $('#cbt_school_name').val();
+  if(school_id != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_masterlist_sy",
+    method:"POST",
+    data:{cbt_school_name:school_id},
+    success:function(data)
+    {
+     $('#cbt_school_year').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#cbt_school_year').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+//Create Masterlist Shchool Dropdown Filter Grade Level
+$(document).ready(function(){
+ $('#cbt_school_name').change(function(){
+
+  var school_id = $('#cbt_school_name').val();
+  if(school_id != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_masterlist_gl",
+    method:"POST",
+    data:{cbt_school_name:school_id},
+    success:function(data)
+    {
+     $('#cbt_grade_level').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#cbt_grade_level').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+//Create Masterlist Shchool Dropdown Filter Batch
+$(document).ready(function(){
+ $('#cbt_school_name').change(function(){
+
+  var school_id = $('#cbt_school_name').val();
+  if(school_id != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_masterlist_batch",
+    method:"POST",
+    data:{cbt_school_name:school_id},
+    success:function(data)
+    {
+     $('#cbt_batch').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#cbt_batch').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+//Create Masterlist Shchool Dropdown Filter Batch
+$(document).ready(function(){
+ $('#cbt_school_name').change(function(){
+
+  var school_id = $('#cbt_school_name').val();
+  if(school_id != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>Pages/fetch_masterlist_section",
+    method:"POST",
+    data:{cbt_school_name:school_id},
+    success:function(data)
+    {
+     $('#cbt_section').html(data); 
+    }
+   });
+  }
+  else
+  {
+   $('#cbt_section').html('<option value="">Select School</option>');
+  }
+
+ });
+});
+
+
+
+
+
+</script>  

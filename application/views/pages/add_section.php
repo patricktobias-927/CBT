@@ -268,9 +268,11 @@ function singleSelectChangeValue() {
     //     document.getElementById("search_text").value = selValue;
     // }
 
-//  SEARCH AJAX       
+//  REFRESH AJAX
+$('#table_section').bootstrapTable('refresh')
 
  
+
 // </script>
 
 

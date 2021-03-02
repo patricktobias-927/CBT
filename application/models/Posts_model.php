@@ -490,7 +490,67 @@ class Posts_model extends CI_Model{
         return $query->result_array();
     }
 
+   //School Year Create Masterlist Dependent Dropdown
+   function fetch_masterlist_sy($school_id)
+   {
+    $this->db->where('school_id', $school_id);
+    $this->db->order_by('section_id', 'ASC');
+    $query = $this->db->get('cbt_add_section');
+    $output = '<option value="">Select School Year</option>';
+  
+    foreach($query->result() as $row)
+   {
+   $output .= '<option value="'.$row->school_year.'">'.$row->school_year.'</option>';
+   }
+   return $output;
+   }
 
+    //Grade level Create Masterlist Dependent Dropdown
+    function fetch_masterlist_gl($school_id)
+    {
+    $this->db->where('school_id', $school_id);
+    $this->db->order_by('section_id', 'ASC');
+    $query = $this->db->get('cbt_add_section');
+    $output = '<option value="">Select Grade Level</option>';
+    
+    foreach($query->result() as $row)
+    {
+    $output .= '<option value="'.$row->grade.'">'.$row->grade.'</option>';
+    }
+    return $output;
+    }
+
+    //Grade level Create Masterlist Dependent Dropdown
+    function fetch_masterlist_batch($school_id)
+    {
+    $this->db->where('school_id', $school_id);
+    $this->db->order_by('section_id', 'ASC');
+    $query = $this->db->get('cbt_add_section');
+    $output = '<option value="">Select Batch</option>';
+    
+    foreach($query->result() as $row)
+    {
+    $output .= '<option value="'.$row->batch.'">'.$row->batch.'</option>';
+    }
+    return $output;
+    }
+
+        //Grade level Create Masterlist Dependent Dropdown
+    function fetch_masterlist_section($school_id)
+    {
+    $this->db->where('school_id', $school_id);
+    $this->db->order_by('section_id', 'ASC');
+    $query = $this->db->get('cbt_add_section');
+    $output = '<option value="">Select Section</option>';
+    
+    foreach($query->result() as $row)
+    {
+    $output .= '<option value="'.$row->section_name.'">'.$row->section_name.'</option>';
+    }
+    return $output;
+    }
+
+    
 
     }
 
