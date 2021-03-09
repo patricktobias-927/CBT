@@ -331,7 +331,7 @@ class Posts_model extends CI_Model{
 
         public function get_students_list(){
             
-            $query = $this->db->query("SELECT cs.LRN, cs.first_name, cs.middle_name, cs.last_name, cas.school_name, cs.gender,  cs.birth_date
+            $query = $this->db->query("SELECT cs.LRN as LRN, cs.first_name, cs.middle_name, cs.last_name, cas.school_name, cs.gender,  cs.birth_date
            FROM cbt_students cs LEFT JOIN cbt_add_school cas ON cs.school_code = cas.school_code  GROUP BY LRN;");
 
 
@@ -345,6 +345,17 @@ class Posts_model extends CI_Model{
 
             // $query = $this->db->get('cbt_students');
             // return $query->result_array();
+        }
+
+        
+        public function get_schools_list(){
+            
+            $query = $this->db->query("SELECT cs.school_code, cs.LRN, cs.first_name, cs.last_name, cs.middle_name, cs.birth_date, cas.school_name, cas.school_id
+           FROM cbt_students cs LEFT JOIN cbt_add_school cas ON cs.school_code = cas.school_code  GROUP BY LRN;");
+
+
+            return $query->result_array();
+
         }
 
         public function update_post(){
@@ -493,8 +504,9 @@ class Posts_model extends CI_Model{
    //School Year Create Masterlist Dependent Dropdown
    function fetch_masterlist_sy($school_id)
    {
+
     $this->db->where('school_id', $school_id);
-    $this->db->order_by('section_id', 'ASC');
+    $this->db->group_by('school_year');
     $query = $this->db->get('cbt_add_section');
     $output = '<option value="">Select School Year</option>';
   
@@ -550,7 +562,44 @@ class Posts_model extends CI_Model{
     return $output;
     }
 
-    
+    function fetch_students_list($school_id)
+    {
+    // $query = $this->db->query("SELECT cs.LRN, cs.first_name, cs.middle_name, cs.last_name, cas.school_name, cs.gender,  cs.birth_date
+    // FROM cbt_students cs LEFT JOIN cbt_add_school cas ON cs.school_code = cas.school_code GROUP BY LRN;");
 
+    // $output = '<td>Select Section</td>';
+    // $this->db->select('ca.school_id, cs.LRN, cs.last_name, cs.first_name, cs.middle_name, ca.school_name, cs.gender, cs.birth_date');
+    // $this->db->select('*');
+    // $this->db->from('cbt_students cs');
+    // $this->db->where('school_code', $school_code);
+    // $this->db->join('cbt_add_school ca', 'ca.school_code = cs.school_code', 'left');
+    // $this->db->get();
+
+    // $this->db->order_by('section_id', 'ASC');
+
+    // $this->db->order_by('school_id', 'ASC');
+    // $this->db->join('cbt_school ca', 'cs.school_code = ca.school_code', 'left');
+    // $this->db->where('ca.school_id', $school_id);
+    // $query = $this->db->get('cbt_students cs');
+    $this->db->where('school_code', $school_id);
+    // $this->db->order_by('student_id', 'ASC');
+    $query = $this->db->get('cbt_students');
+ 
+    $output = '<tr></td>Select</td><tr>';
+  
+
+    foreach($query->result() as $row)
+        {
+            $output .= '<tr>
+            <td scope="row" style="font-weight:bold">'.$row->LRN.'</td>
+            <td>'.$row->last_name.','.$row->first_name.','.$row->middle_name.'</td>
+            <td>'.$row->school_name.'</td>
+            <td>'.$row->date_diff(date_create($row->birth_date), date_create('now'))->y.'</td>
+            <td>'.$row->gender.'</td>
+      
+            </tr>';
+        }
+            return $output; 
     }
+}
 

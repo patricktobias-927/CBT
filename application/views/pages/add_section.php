@@ -269,7 +269,7 @@ function singleSelectChangeValue() {
     // }
 
 //  REFRESH AJAX
-$('#table_section').bootstrapTable('refresh')
+// $('#table_section').bootstrapTable('refresh')
 
  
 

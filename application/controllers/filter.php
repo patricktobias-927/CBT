@@ -17,15 +17,28 @@ class Filter extends CI_Controller {
         
         if ($schools == 0) {
             $data = $this->db->get('cbt_add_section')->result();
-        //     // $data = $this->db->select('*')->get('cbt_add_school')->result();
-        // //     $query = $this->db->get('cbt_add_section');
-        // //     return $query->result_array();
+            // $this->db->distinct();
+            // $this->db->select('cas.school_code, cas.grade, cas.section_name, cas.section_code, cas.school_year');
+            // $this->db->from('cbt_add_section cas');
+            // $this->db->join('cbt_students cs', 'cs.school_code = cas.school_code');
+            // $data = $this->db->get_where('cbt_add_section', ['school_id'=>$schools])->result(); 
+            // $data = $this->db->select('*')->get('cbt_add_section')->result();
+            // $query = $this->db->get('cbt_add_section');
+            // return $data->result_array();
         }
         else
         {
             // $data = $this->db->select('*')->where('school_id', $schools)->get('cbt_add_section');
             // return $query->result();
-        $data = $this->db->get_where('cbt_add_section', ['school_id'=>$schools])->result(); 
+            // $this->db->distinct();
+            // $this->db->select('cas.school_code, cas.grade, cas.section_name, cas.section_code, cas.school_year');
+            // $this->db->from('cbt_add_section cas');
+            // $this->db->join('cbt_students cs', 'cs.school_code = cas.school_code');
+         $this->db->distinct();
+            $this->db->select('cas.school_code, cas.grade, cas.section_name, cas.section_code, cas.school_year, count(cs.student_id) OVER() as population');
+            // $this->db->from('cbt_add_section cas');
+            $this->db->join('cbt_students cs', 'cs.section_code = cas.section_code', 'left');
+            $data = $this->db->get_where('cbt_add_section cas', ['school_id'=>$schools])->result(); 
         }
     if (!empty($data))
     {

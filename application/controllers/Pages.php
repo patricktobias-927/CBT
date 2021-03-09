@@ -724,7 +724,7 @@ public function add_section(){
             $data['sections'] = $this->Posts_model->get_sections();
             $data['students'] = $this->Posts_model->get_students_list();
             $data['records'] = $this->Posts_model->get_LRN();
-            $data['schools'] = $this->Posts_model-> get_records();
+            $data['schools'] = $this->Posts_model->get_schools_list();
 
             $data['title'] = "Students List";
             $this->load->view('templates/header');
@@ -855,6 +855,14 @@ public function add_section(){
         if($this->input->post('cbt_school_name'))
         {
             echo $this->Posts_model->fetch_masterlist_section($this->input->post('cbt_school_name'));
+        }
+        }
+
+        function fetch_students_list()
+        {
+        if($this->input->post('st_school_name'))
+        {
+            echo $this->Posts_model->fetch_students_list($this->input->post('st_school_name'));
         }
         }
 

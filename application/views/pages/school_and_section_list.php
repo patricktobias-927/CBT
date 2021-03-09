@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col-sm-12">
    
-        <table class="table table-bordered table-striped" id="school_list_table" style="">
+        <table class="table table-bordered table-striped" id="school_list_table1" style="">
             <thead>
                 <tr>
 
@@ -76,7 +76,7 @@
 
             <script>
                 $(document).ready(function(){  
-                $('#school_list_table').DataTable();  
+                $('#school_list_table1').DataTable();  
             });  
             </script>  
             <!-- <script>

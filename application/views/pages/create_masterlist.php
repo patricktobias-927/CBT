@@ -58,9 +58,9 @@
                 <div class="col-md-2 col-sm-6"><label for="">Section :</label></div> 
                 <div class="col-md-3 col-sm-6" style=""><select name="cbt_section" id="cbt_section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
-                    <?php foreach($sections as $row){?>
+                    <!-- <?php foreach($sections as $row){?>
                     <option value="<?= $row['section_id'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select>  </div> 
               
         </div>
@@ -78,9 +78,9 @@
                <div class="col-md-2 col-sm-6"><label for="">Grade Level : </label></div> 
                <div class="col-md-9 col-sm-6">  <select name="cbt_grade_level" id="cbt_grade_level" class="form-control" style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
-                    <?php foreach($grade_records as $row){?>
+                    <!-- <?php foreach($grade_records as $row){?>
                     <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select>   </div> 
             </div>
         </div>
@@ -89,9 +89,9 @@
                 <div class="col-md-2 col-sm-6"><label for="">Assessment Type : </label></div> 
                 <div class="col-md-2 col-sm-6"><select style="" id="cbt_assessment" name="cbt_assessment" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue()" >
                     <option value=""></option>
-                    <?php foreach($assessment as $row){?>
+                    <!-- <?php foreach($assessment as $row){?>
                     <option value="<?= $row['assessment_id'];?>"><?= $row['assessment_type'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select></div> 
                
                 </div>
@@ -107,9 +107,9 @@
                <div class="col-md-2 col-sm-6"><label for="">Batch :</label></div> 
                <div class="col-md-9 col-sm-6"> <select name="cbt_batch" id="cbt_batch" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
                     <option value=""></option>
-                    <?php foreach($batch_records as $row){?>
+                    <!-- <?php foreach($batch_records as $row){?>
                     <option value="<?= $row['batch_name'];?>"><?= $row['batch_name'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                 </select></div> 
                 <input type="hidden" name="cbt_hidden_framework" id="cbt_hidden_framework" />
             </div>

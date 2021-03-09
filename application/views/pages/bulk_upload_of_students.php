@@ -16,7 +16,7 @@
                     </form>
                     <br>
                     <form method="post" action="<?php echo base_url(); ?>excel_export/action">
-                    <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Download Template</button>
+                    <!-- <button type="submit" name="export" class="btn btn-success" value=""><i class="fas fa-file-download"></i> Download Template</button> -->
                     </form>
                     <br>
                     

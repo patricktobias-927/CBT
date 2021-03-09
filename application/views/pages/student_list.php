@@ -14,8 +14,8 @@
     <div class="row justify-content-end">
         <div class="col-5">
 
-        <a href="add_student" class="btn btn-success" style="background-color:#FF8C00; border-color:#FF8C00;" ><i class="fas fa-user-plus"></i> Add Student</a>
-            <a href="bulk_upload_of_students" class="btn btn-success" style="background-color:#138496; border-color:#138496; "><i class="fas fa-file-import"></i> Bulk Upload</a>
+
+       
         <!-- <form method="post" action="<?php echo base_url(); ?>Export_add_section_perschool/action">
                 <label for="">Select LRN: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         <select id="select_LRN" name="select_LRN" class="selectpicker" data-live-search="true" onchange="singleSelectChangeofValue()">
@@ -27,6 +27,15 @@
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
            
             </form>   -->
+
+        <label for="">School:</label>
+        <select name="st_school_name" id="st_school_name"class="form-control"  style="width: 200px; onchange="singleSelectChangeValue()">
+          <option value=""></option>
+              <?php foreach($schools as $row){?> 
+                  <!-- ICHANGEDTOSTUDENTID -->
+              <option value="<?= $row['school_id'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
+              <?php } ?>
+        </select>
        
         </div>
         
@@ -34,6 +43,8 @@
 <div class="col-7">
     <div class="row float-right">
     
+        <a href="add_student" class="btn btn-success" style="background-color:#FF8C00; border-color:#FF8C00; margin-right: 10px;" ><i class="fas fa-user-plus"></i> Add Student</a>
+        <a href="bulk_upload_of_students" class="btn btn-success" style="background-color:#138496; border-color:#138496; margin-right: 10px; "><i class="fas fa-file-import"></i> Bulk Upload</a>
         <!-- <div class="col-6"> -->
         <a href="create_masterlist" class="btn btn-dark" style="margin-right: 5px;" ><i class="fas fa-folder-plus"></i> Generate CBT Credentials</a>
             <!-- <a href="add_student" class="btn btn-success" style="background-color:#FF8C00; border-color:#FF8C00;" ><i class="fas fa-user-plus"></i> Add Student</a>
@@ -107,6 +118,7 @@
         <table class="table table-bordered table-striped" id="students_list_table" style="">
             <thead>
                 <tr>
+                <th></th>
                 <th scope="col">LRN</th>
                 <th scope="col">Name</th>
                 <th scope="col">School Name<Code></Code></th>
@@ -115,19 +127,19 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($students as $row){?>
+            <!-- <?php foreach($students as $row){?> -->
                
 
                
-                <tr>
-                <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th>
-                <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td>
-                <td><?= $row['school_name'];?></td>
-                <td><?= $row['gender'];?></td>
-                <td><?=  date_diff(date_create( $row['birth_date']), date_create('now'))->y;?></td>
-                </tr>
+                <!-- <tr> -->
+                <!-- <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th> -->
+                <!-- <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td> -->
+                <!-- <td><?= $row['school_name'];?></td> -->
+                <!-- <td><?= $row['gender'];?></td> -->
+                <!-- <td><?=  date_diff(date_create( $row['birth_date']), date_create('now'))->y;?></td> -->
+                <!-- </tr> -->
             
-                <?php } ?>
+                <!-- <?php } ?> -->
             </tbody>
             </table>
          </div>          
@@ -474,9 +486,71 @@
 <?php }?>
 
 
-            <script>
-                $(document).ready(function(){  
-                $('#students_list_table').DataTable();  
-            });  
-            </script>  
+<script>
+
+// $('table_section').ddTableFilter();
+
+$(document).ready(function(){
+        Filter();
+    $("#st_school_name").change(function(){
+        let a = $(this).val();
+        console.log(a);
+        Filter();
+    });
+});
+
+function Filter() {
+
+    var schools = $("#st_school_name").val();
+    $.ajax({
+        url : "<?= base_url('FilterSchool/load_filter') ?>",
+        data: "st_school_name=" + schools,
+        success:function(data){
+            console.log(data);
+            // $("#table_section tbody").html('<tr><td colspan="4" align="center">PATRICK</td></tr>');
+            $("#students_list_table tbody").html(data);
+        }
+    });
+}
+
+
+
+</script>
+
+
+
+<script>
+//     $(document).ready(function(){  
+//     $('#students_list_table').DataTable();  
+// });  
+
+
+// //Create Masterlist Shchool Dropdown Filter Batch
+// $(document).ready(function(){
+//  $('#st_school_name').change(function(){
+
+//   var school_code = $('#st_school_name').val();
+//   if(school_code != '')
+//   {
+//    $.ajax({
+//     url:"<?php echo base_url(); ?>Pages/fetch_students_list",
+//     method:"POST",
+//     data:{st_school_name:school_code},
+//     success:function(data)
+//     {
+//      $('#students_list_table').html(data); 
+//     }
+//    });
+//   }
+//   else
+//   {
+//    $('#students_list_table').html('<tr><td>Select School<td><tr>');
+//   }
+
+//  });
+// });
+
+
+
+</script>  
 
