@@ -34,11 +34,11 @@ class Export_add_section_perschool extends CI_Controller {
 
   foreach($section_data as $row)
   {
-    $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->school_code);
-    $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->grade);
-    $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->section_name);
-    $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->section_code);
-    $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->school_year);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->school_code);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->grade);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->section_name);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->section_code);
+    $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->school_year);
     $excel_row++;
   }
 
