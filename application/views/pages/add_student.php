@@ -1,153 +1,156 @@
-<?php if($this->session->logged_in){?>
-<!-- <div class="container fluid "> -->
-<form name="multiple_select_form" action="<?=base_url().'add_student'?>" method="post">
-<h1> <?= $title;?> </h1>
-<?= validation_errors();?>
-<?php if($this->session->flashdata('student_added')) : ?> 
-<?= '<p class="alert alert-success">'.$this->session->flashdata('student_added').'</p>' ?>
-<?php endif;?>
-<!-- <?php if($this->session->flashdata('subject_deleted')) : ?> 
-<?= '<p class="alert alert-success">'.$this->session->flashdata('subject_deleted').'</p>' ?>
-<?php endif;?> -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <button type="submit" id="add" name="add" class="btn btn-success" style="float:right; background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-user-plus"></i> Add Student</button>
-        </div>
-    </div>
-</div>
-<hr>
+        <?php if($this->session->logged_in){?>
+        <!-- <div class="container fluid "> -->
+        <form name="multiple_select_form" action="<?=base_url().'add_student'?>" method="post">
+        <h1> <?= $title;?> </h1>
+        <?= validation_errors();?>
+        <?php if($this->session->flashdata('student_added')) : ?> 
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('student_added').'</p>' ?>
+        <?php endif;?>
+        <!-- <?php if($this->session->flashdata('subject_deleted')) : ?> 
+        <?= '<p class="alert alert-success">'.$this->session->flashdata('subject_deleted').'</p>' ?>
+        <?php endif;?> -->
 
-<button style="float:right; display: none;"></button></div>
-<div class="container-fluid px-0">
-    <div class="row align-items-center">
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-end" style="">
-               <div class="col-md-2 col-sm-6"><label for="">LRN :</label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="LRN" name="LRN" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="LRN"></div> 
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6"><label for="">Phoenix Student Code : </label></div> 
-                    <div class="col-md-8 col-sm-6"> <input id="phoenix_student_code" name="phoenix_student_code" class="form-control" style="width: 90% !important;" type="text" style="" placeholder="Phoenix Student Code"></div> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" id="add" name="add" class="btn btn-success" style="float:right; background-color: #FF8C00; border-color: #FF8C00;"><i class="fas fa-user-plus"></i> Add Student</button>
                 </div>
             </div>
         </div>
-    </div>
 
-<br>
-<br>
-<br>
-<div class="container-fluid px-0">
-    <div class="row align-items-center">
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-end" style="">
-               <div class="col-md-2 col-sm-6"><label for="">First Name : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="first_name" name="first_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="First Name"></div> 
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="row">
-                <div class="col-md-2 col-sm-6"><label for="">Gender</label></div> 
-                <div class="col-md-3 col-sm-6" style=""><select id="gender" name="gender" class="form-control"  style="width: 110px;">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                </select></div> 
-              
-        </div>
-            </div>
-        </div>       
-    </div>    
-    
-<br>
-<br>  
+        <hr>
 
-<div class="container-fluid px-0">
-    <div class="row align-items-center">
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-end" style="">
-               <div class="col-md-2 col-sm-6"><label for="">Middle Name : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="middle_name" name="middle_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Middle Name"></div> 
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 col-sm-6"><label for="">Birthdate: </label></div> 
-                <input id="birthdate" name="birthday" class="col-md-5 col-sm-6 form-control" type=""  name="birthday" value="10/24/1984" />
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <label for="">Respondent Number :</label>
+                        </div>
+                        <div class="col-10"> 
+                            <input id="LRN" name="LRN" class="form-control" style="width: 70% !important;" type="text" style="" placeholder="Respondent Number">
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <label for="">Phoenix Student Code : </label> 
+                        </div>
+                            <div class="col-md-8 col-sm-6"> 
+                                <input id="phoenix_student_code" name="phoenix_student_code" class="form-control" style="width: 90% !important;" type="text" style="" placeholder="Phoenix Student Code">
+                            </div> 
+                    </div>
                 </div>
             </div>
-        </div>       
-    </div>     
-<br>
-<br>
-<div class="container-fluid px-0">
-    <div class="row align-items-center">
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-end" style="">
-               <div class="col-md-2 col-sm-6"><label for="">Last Name : </label></div> 
-               <div class="col-md-9 col-sm-6"> <input id="last_name" name="last_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Middle Name"></div> 
-            </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="row">
-                <div class="col-md-2 col-sm-6"><label for="">School: </label></div> 
-                <div class="col-md-9 col-sm-6">  <select name="school_name" id="school_name"class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px;" onchange="singleSelectChangeValue()">
-                    <option value=""></option>
-                    <?php foreach($schools as $row){?> 
-                    <!-- ICHANGEDTOSTUDENTID -->
-                    <option value="<?= $row['school_code'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
-                    <?php } ?>
-                </select></div> 
-               
+        <br>
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-sm-6">
+                    <div class="row justify-content-end" style="">
+                        <div class="col-md-2 col-sm-6"><label for="">First Name : </label></div> 
+                    <div class="col-md-9 col-sm-6"> <input id="first_name" name="first_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="First Name"></div> 
+                    </div>
                 </div>
-            </div>
-        </div>       
-    </div>         
-<br>
-<br>
-<br>
-
-<div class="container-fluid px-0">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-start" style="">
-               <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Grade level :</label></div> 
-               <div class="col-md-8 col-sm-6 d-md-inline">
-               <select name="grade_level" id="grade_level" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
-                    <!-- <option value=""></option> -->
-                    <!-- <?php foreach($grade_records as $row){?>
-                    <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
-                    <?php } ?> -->
-                </select>  
-                </div> 
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="row justify-content-start" style="">
-               <div class="col-md-2 col-sm-6" style=""><label for="">Section :</label></div> 
-               <div class="col-md-8 col-sm-6 d-md-inline">
-               <select name="section" id="section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
-                    <!-- <option value=""></option> -->
-                    <!-- <?php foreach($sections as $row){?>
-                    <option value="<?= $row['section_id'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
-                    <?php } ?> -->
-                </select>  
-                
-                </div> 
-            </div>
-        </div>
-        
-        <!-- <div class="col-md-6 col-sm-6"><a class="btn btn-info" id="toggle"><i class="fas fa-plus"></i> Add Previous Records</a></div>  -->
-        <!-- <div class="col-md-6 col-sm-6">
-            <div class="row">
-                <div class="col-md-6 col-sm-6"><a class="btn btn-primary" id="toggle">Has Records?</a></div> 
-                <div class="col-md-6 col-sm-6"></div> 
+                <div class="col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6">
+                            <label for="">Gender</label>
+                        </div> 
+                        <div class="col-md-3 col-sm-6" style="">
+                            <select id="gender" name="gender" class="form-control"  style="width: 110px;">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            </select>
+                        </div>    
+                    </div>
                 </div>
-            </div> -->
+                </div>       
+            </div>    
             
-        </div>       
-    </div>
+
+
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-sm-6">
+                    <div class="row justify-content-end" style="">
+                    <div class="col-md-2 col-sm-6"><label for="">Middle Name : </label></div> 
+                    <div class="col-md-9 col-sm-6"> <input id="middle_name" name="middle_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Middle Name"></div> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6"><label for="">Birthdate: </label></div> 
+                        <input id="birthdate" name="birthday" class="col-md-5 col-sm-6 form-control" type=""  name="birthday" value="10/24/1984" />
+                        </div>
+                    </div>
+                </div>       
+            </div>     
+        <div class="container-fluid px-0">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-sm-6">
+                    <div class="row justify-content-end" style="">
+                    <div class="col-md-2 col-sm-6"><label for="">Last Name : </label></div> 
+                    <div class="col-md-9 col-sm-6"> <input id="last_name" name="last_name" class="form-control" style="width: 60% !important;" type="text" style="" placeholder="Middle Name"></div> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6"><label for="">School: </label></div> 
+                        <div class="col-md-9 col-sm-6">  <select name="school_name" id="school_name"class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px;" onchange="singleSelectChangeValue()">
+                            <option value=""></option>
+                            <?php foreach($schools as $row){?> 
+                            <!-- ICHANGEDTOSTUDENTID -->
+                            <option value="<?= $row['school_code'];?>"><?= $row['school_name'].' - '.$row['school_code'];?></option>
+                            <?php } ?>
+                        </select></div> 
+                    
+                        </div>
+                    </div>
+                </div>       
+            </div>         
+        <br>
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="row justify-content-start" style="">
+                    <div class="col-md-2 col-sm-6" style="margin-left: 46px;"><label for="">Grade level :</label></div> 
+                    <div class="col-md-8 col-sm-6 d-md-inline">
+                    <select name="grade_level" id="grade_level" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                            <!-- <option value=""></option> -->
+                            <!-- <?php foreach($grade_records as $row){?>
+                            <option value="<?= $row['grade_level'];?>"><?= $row['grade_level'];?></option>
+                            <?php } ?> -->
+                        </select>  
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="row justify-content-start" style="">
+                    <div class="col-md-2 col-sm-6" style=""><label for="">Section :</label></div> 
+                    <div class="col-md-8 col-sm-6 d-md-inline">
+                    <select name="section" id="section" class="form-control"  style="width: 180px;float:left;margin-left:10px;margin-top:-4px; ">
+                            <!-- <option value=""></option> -->
+                            <!-- <?php foreach($sections as $row){?>
+                            <option value="<?= $row['section_id'];?>"><?= $row['section_code'].' - '.$row['section_name'];?></option>
+                            <?php } ?> -->
+                        </select>  
+                        
+                        </div> 
+                    </div>
+                </div>
+                
+                <!-- <div class="col-md-6 col-sm-6"><a class="btn btn-info" id="toggle"><i class="fas fa-plus"></i> Add Previous Records</a></div>  -->
+                <!-- <div class="col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6"><a class="btn btn-primary" id="toggle">Has Records?</a></div> 
+                        <div class="col-md-6 col-sm-6"></div> 
+                        </div>
+                    </div> -->
+                    
+                </div>       
+            </div>
 
        <br>
        <br>     
@@ -184,17 +187,14 @@
 
     <br>
     <br>
-    <br>
-    <br>
-    <br>
 
-<div style="display:none;" class="container respondent_id">
+<div style="display:none;" class="container-fluid respondent_id">
 
 <div class="container-fluid px-0">
-    <div class="row align-items-center">
+    <div class="row">
         <div class="col-md-6 col-sm-6">
-            <div class="row justify-content" style="">
-               <div class="col-md-5 col-sm-6"><label style=" font-weight: bold;" for="">Previous Test</label></div> 
+            <div class="row" style="">
+               <div class="col-6"><label style=" font-weight: bold;" for="">Previous Test</label></div> 
             </div>
         </div>
         <div class="col-md-7 col-sm-6">
@@ -290,13 +290,13 @@
           
 </div>    
 
+<br>
 
-
-<div style="display:none;" class="container respondent_id2">
+<div style="display:none;" class="container-fluid respondent_id2">
 <div class="container-fluid px-0">
-    <div class="row align-items-center">
+    <div class="row">
         <div class="col-md-6 col-sm-6">
-            <div class="row justify-content" style="">
+            <div class="row" style="">
                <div class="col-md-5 col-sm-6"><label style=" font-weight: bold;" for="">Previous Test</label></div> 
             </div>
         </div>
@@ -393,8 +393,9 @@
           
 </div>    
 
+<br>
 
-<div style="display:none;" class="container respondent_id3">
+<div style="display:none;" class="container-fluid respondent_id3">
 <div class="container-fluid px-0">
     <div class="row align-items-center">
         <div class="col-md-6 col-sm-6">
@@ -500,7 +501,9 @@
           
 </div>    
 
-<div style="display:none;" class="container respondent_id4">
+<br>
+
+<div style="display:none;" class="container-fluid respondent_id4">
 <div class="container-fluid px-0">
     <div class="row align-items-center">
         <div class="col-md-6 col-sm-6">
@@ -609,7 +612,9 @@
           
 </div>  
 
-<div style="display:none;" class="container respondent_id5">
+<br>
+
+<div style="display:none;" class="container-fluid respondent_id5">
 <div class="container-fluid px-0">
     <div class="row align-items-center">
         <div class="col-md-6 col-sm-6">

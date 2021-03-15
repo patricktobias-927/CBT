@@ -1,5 +1,5 @@
 <?php if($this->session->logged_in){?>
-<div class="container fluid ">
+<div class="container-fluid">
 <h1> <?= $title;?> </h1>
 <hr>
 <?= validation_errors();?>
@@ -24,11 +24,11 @@
       </div>  
 </form>
 </div>
-<div class="container">
+<div class="container-fluid">
 <div class="row">
     <div class="col-lg-12">  
            <form name="bulk_action_form2" action="<?= base_url().'delete_subject'?> " method="post" onSubmit="return delete_subject_confirm q ();"/>
-           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="float:left; margin-left: 445px;  width:15%; margin-top:-43px;">Delete</button> 
+           <button type="submit" name="bulk_delete_submit" value="DELETE" class="btn btn-danger" style="float:left; margin-left: 520px;  width:15%; margin-top:-43px;">Delete</button> 
              <div class="form-group">
              <br>
              <br>
