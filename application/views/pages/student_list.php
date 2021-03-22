@@ -46,7 +46,6 @@
               <table class="table table-bordered table-striped" id="students_list_table" style="">
                 <thead>
                   <tr>
-                  <th scope="col">LRN</th>
                   <th scope="col">Name</th>
                   <th scope="col">School Name<Code></Code></th>
                   <th scope="col">Gender</th>
@@ -56,7 +55,6 @@
                 <tbody>
                     <?php foreach($students as $row){?>   
                         <tr>
-                        <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th>
                         <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td>
                         <td><?= $row['school_name'];?></td>
                         <td><?= $row['gender'];?></td>
