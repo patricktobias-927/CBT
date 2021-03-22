@@ -71,7 +71,7 @@
           <br> 
           <br>   
           <div class="row">
-            <div class="col-3">
+            <div class="col-6">
               <div class="dropdown">
                 <button class="btn dropdown-toggle exportStudentList" style="margin-right: 5px; float:right;  background-color: white; border-color: gray;" name="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-print"></i> Export Student Details
@@ -86,7 +86,7 @@
               </div>
             </div>
 
-                <div class="col-3">
+                <div class="col-6">
                   <div class="dropdown div">
                       <button class="btn dropdown-toggle exportRespondentTempalate" style="margin-left: -25px; background-color: white; border-color: gray;" type="button" name="exportRespondentTempalate" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-print"></i> Export Respondent Template
@@ -195,15 +195,7 @@
         <button class="btn btn-primary" style="margin-left: 10px;" type="submit" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-print"></i>
                 </button>
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                        <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
-                        <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Export_lrn/action">Print Details</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button> -->
-                        <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>ExcelExportReslrn/action">Respondent Template</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button> -->
-                    
-                        <!-- </div>                -->
-                    <!-- </div> -->
+         
 
                 </form>  
           </div>
@@ -235,22 +227,11 @@
                                 <option value="<?= $row['school_code'];?>"><?= $row['school_code'].' - '.$row['school_name'];?></option>
                             <?php } ?>
                             </select>
-    <!-- 
-    <br>
-    <br>            -->
 
-    <!-- <div class="dropdown" style="margin-left: 170px;"> -->
         <button class="btn btn-primary" style="margin-left: 10px;" type="submit" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-print"></i>
                 </button>
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                  
-                        <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button> -->
-
-                        <!-- </div>                -->
-                    <!-- </div> -->
+          
               
                 </form>  
           </div>
@@ -324,24 +305,11 @@
                             <option value="<?= $row['student_id'];?>"><?= $row['LRN'].' - '.$row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></option>
                             <?php } ?>
                             </select>
-    <!--                       
-                            <br>
-                            <br> -->
-                            
-                    <!-- <div class="dropdown" style="margin-left: 170px;"> -->
+
         <button class="btn btn-primary" style="margin-left: 10px;" type="submit" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-print"></i>
                 </button>
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                        <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
-                        <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Export_lrn/action">Print Details</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button> -->
-                        <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>ExcelExportReslrn/action">Respondent Template</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button> -->
-                    
-                        <!-- </div>                -->
-                    <!-- </div> -->
-
+              
                 </form>  
           </div>
           <div class="modal-footer">
@@ -372,22 +340,11 @@
                                 <option value="<?= $row['school_code'];?>"><?= $row['school_code'].' - '.$row['school_name'];?></option>
                             <?php } ?>
                             </select>
-    <!-- 
-    <br>
-    <br>            -->
-
-    <!-- <div class="dropdown" style="margin-left: 170px;"> -->
+ 
         <button class="btn btn-primary" style="margin-left: 10px;" type="submit" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-print"></i>
                 </button>
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                  
-                        <!-- <a  class="dropdown-item" href="<?php echo base_url(); ?>Export_add_section/action">Generate CBT Credentials</a> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Print Details</button> -->
-                        <!-- <button class="dropdown-item" type="submit" name="export"  value="">Respondent Template</button> -->
-
-                        <!-- </div>                -->
-                    <!-- </div> -->
+                   
               
                 </form>  
           </div>
