@@ -46,7 +46,6 @@
               <table class="table table-bordered table-striped" id="students_list_table" style="">
                 <thead>
                   <tr>
-                  <th></th>
                   <th scope="col">LRN</th>
                   <th scope="col">Name</th>
                   <th scope="col">School Name<Code></Code></th>
@@ -439,9 +438,9 @@ $(document).ready(function(){
 
 
 <script>
-//     $(document).ready(function(){  
-//     $('#students_list_table').DataTable();  
-// });  
+    $(document).ready(function(){  
+    $('#students_list_table').DataTable();  
+});  
 
 
 // //Create Masterlist Shchool Dropdown Filter Batch
