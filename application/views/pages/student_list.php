@@ -55,16 +55,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <!-- <?php foreach($students as $row){?> -->   
-                        <!-- <tr> -->
-                        <!-- <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th> -->
-                        <!-- <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td> -->
-                        <!-- <td><?= $row['school_name'];?></td> -->
-                        <!-- <td><?= $row['gender'];?></td> -->
-                        <!-- <td><?=  date_diff(date_create( $row['birth_date']), date_create('now'))->y;?></td> -->
-                        <!-- </tr> -->
+                    <?php foreach($students as $row){?>   
+                        <tr>
+                        <td scope="row" style="font-weight:bold"><?= $row['LRN'];?></th>
+                        <td><?= $row['last_name'].', '.$row['first_name'].' '.$row['middle_name'];?></td>
+                        <td><?= $row['school_name'];?></td>
+                        <td><?= $row['gender'];?></td>
+                        <td><?=  date_diff(date_create( $row['birth_date']), date_create('now'))->y;?></td>
+                        </tr>
                     
-                        <!-- <?php } ?> -->
+                        <?php } ?>
                 </tbody>
               </table>
             </div>          
@@ -418,19 +418,19 @@ $(document).ready(function(){
     });
 });
 
-function Filter() {
+// function Filter() {
 
-    var schools = $("#st_school_name").val();
-    $.ajax({
-        url : "<?= base_url('FilterSchool/load_filter') ?>",
-        data: "st_school_name=" + schools,
-        success:function(data){
-            console.log(data);
-            // $("#table_section tbody").html('<tr><td colspan="4" align="center">PATRICK</td></tr>');
-            $("#students_list_table tbody").html(data);
-        }
-    });
-}
+//     var schools = $("#st_school_name").val();
+//     $.ajax({
+//         url : "<?= base_url('FilterSchool/load_filter') ?>",
+//         data: "st_school_name=" + schools,
+//         success:function(data){
+//             console.log(data);
+//             // $("#table_section tbody").html('<tr><td colspan="4" align="center">PATRICK</td></tr>');
+//             $("#students_list_table tbody").html(data);
+//         }
+//     });
+// }
 
 
 

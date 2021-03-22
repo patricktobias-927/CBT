@@ -26,15 +26,15 @@ class FilterSchool extends CI_Controller {
         }
         else
         {
-            // $data = $this->db->select('*')->where('school_id', $schools)->get('cbt_add_section');
-            // return $query->result();
-        $this->db->distinct();
-        $this->db->select('*');
+            $data = $this->db->select('*')->where('school_id', $schools)->get('cbt_add_section');
+            return $query->result();
+        // $this->db->distinct();
+        // $this->db->select('*');
         // $this->db->group_by('LRN');
-        $this->db->from('cbt_students cs');
-        $this->db->join('cbt_add_school ca', 'cs.school_code = ca.school_code');
+        // $this->db->from('cbt_students cs');
+        // $this->db->join('cbt_add_school ca', 'cs.school_code = ca.school_code');
     
-        $data = $this->db->get_where('cbt_students', ['ca.school_id'=>$schools])->result(); 
+        // $data = $this->db->get_where('cbt_students', ['ca.school_id'=>$schools])->result(); 
         
         }
     if (!empty($data))
