@@ -77,7 +77,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a  type="button" class="dropdown-item" href="<?php echo base_url(); ?>Excel_export_students_all/action">Export All</a>
                       <!-- <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_All">Export All</a> -->
-                    <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Students">Export Per LRN</a>
+                    <!-- <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Students">Export Per LRN</a> -->
                     <a type="button" class="dropdown-item" data-toggle="modal" data-target=".Modal_Schools">Export Per School</a>
                     <a type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Sections">Export Per Section</a>
                 </div>
@@ -92,7 +92,7 @@
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <!-- <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_All">Export All</a> -->
                                         <a  type="button" class="dropdown-item" href="<?php echo base_url(); ?>ExcelExportRespondent/action">Export All</a>
-                                      <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Students2">Export Per LRN</a>
+                                      <!-- <a  type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Students2">Export Per LRN</a> -->
                                       <a type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Schools2">Export Per School</a>
                                       <a type="button" class="dropdown-item" data-toggle="modal" data-target="#Modal_Sections2">Export Per Section</a> 
                             </div>
