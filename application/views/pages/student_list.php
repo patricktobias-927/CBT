@@ -405,6 +405,9 @@
 
 
 <script>
+    $(document).ready(function(){  
+    $('#students_list_table').DataTable();  
+});  
 
 // $('table_section').ddTableFilter();
 
@@ -438,10 +441,6 @@ $(document).ready(function(){
 
 
 <script>
-    $(document).ready(function(){  
-    $('#students_list_table').DataTable();  
-});  
-
 
 // //Create Masterlist Shchool Dropdown Filter Batch
 // $(document).ready(function(){
