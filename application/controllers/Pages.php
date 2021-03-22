@@ -866,5 +866,4 @@ public function add_section(){
         }
         }
 
-
 }
