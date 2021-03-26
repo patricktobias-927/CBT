@@ -470,7 +470,7 @@ class Posts_model extends CI_Model{
       function fetch_section($school_id)
         {
         $this->db->where('school_code', $school_id);
-        $this->db->order_by('section_id', 'ASC');
+        $this->db->group_by('section_name', 'ASC');
         $query = $this->db->get('cbt_add_section');
         $output = '<option value="">Select Section</option>';
         foreach($query->result() as $row)
@@ -484,7 +484,7 @@ class Posts_model extends CI_Model{
       function fetch_glevel($school_id)
       {
       $this->db->where('school_code', $school_id);
-      $this->db->order_by('section_id', 'ASC');
+      $this->db->group_by('grade', 'ASC');
       $query = $this->db->get('cbt_add_section');
       $output = '<option value="">Select Level</option>';
       foreach($query->result() as $row)
@@ -522,7 +522,7 @@ class Posts_model extends CI_Model{
     {
         
     $this->db->where('school_id', $school_id);
-    $this->db->order_by('section_id', 'ASC');
+    $this->db->group_by('grade', 'ASC');
     $query = $this->db->get('cbt_add_section');
     $output = '<option value="">Select Grade Level</option>';
     
@@ -533,11 +533,11 @@ class Posts_model extends CI_Model{
     return $output;
     }
 
-    //Grade level Create Masterlist Dependent Dropdown
+    //Batch Create Masterlist Dependent Dropdown
     function fetch_masterlist_batch($school_id)
     {
     $this->db->where('school_id', $school_id);
-    $this->db->order_by('section_id', 'ASC');
+    $this->db->group_by('batch', 'ASC');
     $query = $this->db->get('cbt_add_section');
     $output = '<option value="">Select Batch</option>';
     
@@ -548,11 +548,11 @@ class Posts_model extends CI_Model{
     return $output;
     }
 
-        //Grade level Create Masterlist Dependent Dropdown
+        //Section Create Masterlist Dependent Dropdown
     function fetch_masterlist_section($school_id)
     {
     $this->db->where('school_id', $school_id);
-    $this->db->order_by('section_id', 'ASC');
+    $this->db->group_by('section_name', 'ASC');
     $query = $this->db->get('cbt_add_section');
     $output = '<option value="">Select Section</option>';
     
