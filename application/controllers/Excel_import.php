@@ -128,10 +128,15 @@ class Excel_import extends CI_Controller
   $result = $this->db->query("SELECT * FROM cbt_students WHERE LRN = '" . $LRN . "' ");
    $totalrows = $result->num_rows();
       if ($totalrows > 0) {
-         $this->excel_import_model->update($data);
+        $this->db->where('LRN', $LRN);
+        $this->db->update('cbt_students',$data);
+        //  $this->excel_import_model->update($data);
          echo "Data Updated Successfully!";
       //   $this->excel_import_model->update($data);
- } else { $this->excel_import_model->insert($data);
+ } else { 
+  //  $this->excel_import_model->insert($data);
+  $this->db->set('LRN', $LRN);
+  $this->db->insert('cbt_students',$data);
    echo "Data Imported Successfully!";
 
  }

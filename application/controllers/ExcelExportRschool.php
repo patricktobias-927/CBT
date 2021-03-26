@@ -18,7 +18,7 @@ class ExcelExportRschool extends CI_Controller {
 
   $object->setActiveSheetIndex(0);
 
-  $table_columns = array("School_Code", "Grade", "Section_Code", "LRN", "Respondent_Num", "SY_From", "SY_To", "Last_Name", "First_Name", "MI", "Suffix", "Gender"
+  $table_columns = array("school_code", "grade", "section_code", "lrn", "respondent_num", "sy_from", "sy_to", "last_name", "first_name", "mi", "suffix", "gender"
 );
 
   $column = 0;
