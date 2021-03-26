@@ -504,7 +504,7 @@ class Posts_model extends CI_Model{
    //School Year Create Masterlist Dependent Dropdown
    function fetch_masterlist_sy($school_id)
    {
-
+    $this->db->distinct();
     $this->db->where('school_id', $school_id);
     $this->db->group_by('school_year');
     $query = $this->db->get('cbt_add_section');
@@ -520,6 +520,7 @@ class Posts_model extends CI_Model{
     //Grade level Create Masterlist Dependent Dropdown
     function fetch_masterlist_gl($school_id)
     {
+        
     $this->db->where('school_id', $school_id);
     $this->db->order_by('section_id', 'ASC');
     $query = $this->db->get('cbt_add_section');
