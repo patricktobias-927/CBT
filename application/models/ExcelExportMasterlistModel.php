@@ -15,15 +15,15 @@ LOWER(CONCAT(RIGHT(s.first_name, 1), '.', s.last_name
 
 -- FOR CHANGING OF PASSWORD
 
--- LOWER(CONCAT(s.section_code, RIGHT(s.student_id, 2), '_', 
+LOWER(CONCAT(s.section_code, RIGHT(s.student_id, 2), '_', 
 
--- -- GET FIRSTNAME BEFORE SPACE
--- REVERSE(RIGHT(REVERSE(s.first_name
--- ), LENGTH(s.first_name
--- ) - LOCATE(' ', REVERSE(s.first_name
--- ))))
+-- GET FIRSTNAME BEFORE SPACE
+REVERSE(RIGHT(REVERSE(s.first_name
+), LENGTH(s.first_name
+) - LOCATE(' ', REVERSE(s.first_name
+))))
 
--- )) as pass_word,
+)) as pass_word,
 
 
 CONCAT(mi.school_acronym, ' ', RIGHT(s.grade_level, 2), ' ', s.section_name) as group_,
