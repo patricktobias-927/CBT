@@ -11,16 +11,19 @@ class ExcelExportMasterlistModel extends CI_Model
 $query = $this->db->query("SELECT s.student_id as student_id, s.first_name as first_name, s.middle_name as middle_name, s.last_name as last_name, s.gender as gender, CONCAT(SUBSTRING(ad.school_year, 3, 2), SUBSTRING(ad.school_year, 8, 2), '-', LPAD(s.school_code, 4, 0), '-', LPAD(s.grade_level, 2, 0), '-', RIGHT(s.section_code, 4), '-', LPAD(s.LRN, 2, 0)) as concated, 
 
 LOWER(CONCAT(mi.school_acronym, '_', RIGHT(s.grade_level, 2), s.section_code, '_', s.student_id)) as username,
-LOWER(CONCAT(s.section_code, RIGHT(s.student_id, 2), '_', 
+LOWER(CONCAT(RIGHT(s.first_name, 1), '.', s.last_name
 
--- GET FIRSTNAME BEFORE SPACE
-REVERSE(RIGHT(REVERSE(s.first_name
-), LENGTH(s.first_name
-) - LOCATE(' ', REVERSE(s.first_name
-))))
+-- FOR CHANGING OF PASSWORD
 
+-- LOWER(CONCAT(s.section_code, RIGHT(s.student_id, 2), '_', 
 
-)) as pass_word,
+-- -- GET FIRSTNAME BEFORE SPACE
+-- REVERSE(RIGHT(REVERSE(s.first_name
+-- ), LENGTH(s.first_name
+-- ) - LOCATE(' ', REVERSE(s.first_name
+-- ))))
+
+-- )) as pass_word,
 
 
 CONCAT(mi.school_acronym, ' ', RIGHT(s.grade_level, 2), ' ', s.section_name) as group_,

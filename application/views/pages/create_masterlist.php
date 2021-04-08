@@ -104,9 +104,9 @@
                         <div class="col-10">
                                 <select style="" id="cbt_assessment" name="cbt_assessment" class="selectpicker" data-live-search="true" onchange="singleSelectChangeValue()" >
                                     <option value=""></option>
-                                    <!-- <?php foreach($assessment as $row){?>
+                                    <?php foreach($assessment as $row){?>
                                     <option value="<?= $row['assessment_id'];?>"><?= $row['assessment_type'];?></option>
-                                    <?php } ?> -->
+                                    <?php } ?>
                                 </select>
                             </div> 
                         </div> 
@@ -355,9 +355,6 @@ $(document).ready(function(){
 
  });
 });
-
-
-
 
 
 </script>  
