@@ -207,7 +207,6 @@ public function add_student(){
     $this->form_validation->set_rules('first_name', 'First Name', 'required'); 
     $this->form_validation->set_rules('gender', 'Gender', 'required'); 
     $this->form_validation->set_rules('middle_name', 'Middle Name', 'required'); 
-    $this->form_validation->set_rules('birthdate', 'Birth Date', 'required'); 
     $this->form_validation->set_rules('last_name', 'Last Name', 'required'); 
     $this->form_validation->set_rules('school_name', 'School Name', 'required'); 
     $this->form_validation->set_rules('grade_level', 'Grade Level', 'required'); 

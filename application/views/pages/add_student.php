@@ -82,7 +82,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="row">
                         <div class="col-md-2 col-sm-6"><label for="">Birthdate: </label></div> 
-                        <input id="birthdate" name="birthday" class="col-md-5 col-sm-6 form-control" type=""  name="birthday" value="10/24/1984" />
+                        <input id="birthdate" name="birthday" class="col-md-5 col-sm-6 form-control" type="" value="" />
                         </div>
                     </div>
                 </div>       
