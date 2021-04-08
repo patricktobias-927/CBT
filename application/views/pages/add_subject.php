@@ -35,8 +35,8 @@
                 <table class="table table-bordered table-striped" style="width: 100%;" id="batch_table">
                     <thead>
                         <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Subject</th>
+                        <th></th>
+                        <th class="col">Subject</th>
                         </tr>
                     </thead>
                     <tbody>     

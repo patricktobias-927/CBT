@@ -34,8 +34,8 @@
                                 <table class="table table-bordered table-striped" style="width: 100%;" id="grade_table">
                                 <thead>
                                     <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Grade Level</th>
+                                    <th></th>
+                                    <th class="col">Grade Level</th>
                                     </tr>
                                 </thead>
                                 <tbody>    

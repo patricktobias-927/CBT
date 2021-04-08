@@ -39,8 +39,8 @@
                         <table class="table table-bordered table-striped"  style="width: 100%; " id="section_codes_table">
                             <thead>
                                 <tr>
-                                <th scope="col"></th>
-                                <th scope="col">School Code</th>
+                                <th></th>
+                                <th class="col">School Code</th>
                                 </tr>
                             </thead>
                         <tbody>     
